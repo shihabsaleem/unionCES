@@ -1,6 +1,9 @@
 import React from "react";
 import "./sidebar.scss";
-import HomeIcon from "@mui/icons-material/Home";
+import HomeIcon from '@mui/icons-material/Home';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 const Sidebar = () => {
   return (
@@ -14,13 +17,13 @@ const Sidebar = () => {
           <li><HomeIcon/>
             <span>Dashboard</span>
           </li>
-          <li>
+          <li><HowToVoteIcon/>
             <span>Cast Vote</span>
           </li>
-          <li>
+          <li><HowToRegIcon/>
             <span>Candidate Profile</span>
           </li>
-          <li>
+          <li><EqualizerIcon/>
             <span>Result</span>
           </li>
         </ul>
