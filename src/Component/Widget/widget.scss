@@ -3,8 +3,10 @@
     justify-content: space-between;
     flex: 1;
     padding: 10px;
-    box-shadow: 2px 4px 8px 0.5px grey;
-    border-radius: 4px;
+    box-shadow: 2px 1px 6px 3px rgba(191, 191, 191, 1);
+    -webkit-box-shadow: 2px 1px 6px 3px rgba(191, 191, 191, 1);
+    -moz-box-shadow: 2px 1px 6px 3px rgba(191, 191, 191, 1);
+    border-radius: 6px;
     height: 100px;
 
     .left,
@@ -18,15 +20,19 @@
             color: #333333;
             font-size: 14px;
         }
+
         .counter {
-            font-size:45px;
+            font-size: 45px;
             font-weight: 500;
             color: #555555;
         }
-    .icon{
-        font-size: 100px;
-        color: #ddd;
-        
-    }}
+
+        .icon {
+            font-size: 90px;
+            color: #ddd;
+
+
+        }
+    }
 
 }
