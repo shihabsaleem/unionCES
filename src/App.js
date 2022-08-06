@@ -1,7 +1,7 @@
-import Home from "./Pages/Home/Home";
-import Add from "./Pages/Add/Add";
-import List from "./Pages/List/List";
-import Result from "./Pages/Result/Result";
+import Home from "./Pages/Home/Home"
+import Add from "./Pages/Add/Add"
+import List from "./Pages/List/List"
+import Result from "./Pages/Result/Result"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 
