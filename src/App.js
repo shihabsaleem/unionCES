@@ -1,9 +1,9 @@
-import Home from "./Component/Home/Home";
-import Vote from "./Component/Vote/Vote";
-import Profile from "./Component/Profile/Profile";
-import Result from "./Component/Result/Result";
+import Home from "./Pages/Home/Home";
+import Vote from "./Pages/Vote/Vote";
+import Profile from "./Pages/Profile/Profile";
+import Result from "./Pages/Result/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Component/Login/Login";
+import Login from "./Pages/Login/Login";
 
 function App() {
   return (
