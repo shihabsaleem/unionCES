@@ -1,9 +1,10 @@
 import React from "react";
 import "./sidebar.scss";
-import HomeIcon from '@mui/icons-material/Home';
-import HowToVoteIcon from '@mui/icons-material/HowToVote';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
-import EqualizerIcon from '@mui/icons-material/Equalizer';
+import HomeIcon from "@mui/icons-material/Home";
+import HowToVoteIcon from "@mui/icons-material/HowToVote";
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+import EqualizerIcon from "@mui/icons-material/Equalizer";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Sidebar = () => {
   return (
@@ -14,21 +15,32 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <li><HomeIcon/>
+          <li>
+            <HomeIcon className="icon" />
             <span>Dashboard</span>
           </li>
-          <li><HowToVoteIcon/>
+          <li>
+            <HowToVoteIcon className="icon" />
             <span>Cast Vote</span>
           </li>
-          <li><HowToRegIcon/>
-            <span>Candidate Profile</span>
+          <li>
+            <HowToRegIcon className="icon" />
+            <span>Candidates</span>
           </li>
-          <li><EqualizerIcon/>
+          <li>
+            <EqualizerIcon className="icon" />
             <span>Result</span>
+          </li>
+          <li>
+            <LogoutIcon className="icon" />
+            <span>Logout</span>
           </li>
         </ul>
       </div>
-      <div className="bottom">color</div>
+      <div className="bottom">
+        <div className="colorOption"></div>
+        <div className="colorOption"></div>
+      </div>
     </div>
   );
 };
