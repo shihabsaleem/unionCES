@@ -1,22 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Component/Home/Home";
+import Vote from "./Component/Vote/Vote";
+import Profile from "./Component/Profile/Profile";
+import Result from "./Component/Result/Result";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Component/Login/Login";
-import Register from "./Component/Register/Register";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Main</h1>
-        <Router><Link to={'/Register'}></Link>
-          <Routes>
-            <Route exact path="/" element={<Login />} />
-          </Routes>
-          <Routes>
-            <Route exact path="/" element={<Register />} />
-          </Routes>
-        </Router>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="Login" element={<Login/>}/>
+            <Route path="/Vote" element={<Vote />}/>
+            <Route path="/Profile" element={<Profile />}/>
+            <Route path="/Result" element={<Result />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

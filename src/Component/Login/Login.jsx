@@ -1,10 +1,9 @@
 import React from 'react'
-import './Login.css'
+import './login.scss'
 
-function Login() {
+const Login = () => {
   return (
-    <div>Login Page</div>
-    
+    <div>Login</div>
   )
 }
 
