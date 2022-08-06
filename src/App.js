@@ -1,12 +1,12 @@
 import Home from "./Pages/Home/Home";
-import Vote from "./Pages/Vote/Vote";
-import Profile from "./Pages/Profile/Profile";
+import Vote from "./Pages/Vote/Add";
+import Profile from "./Pages/Profile/List";
 import Result from "./Pages/Result/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 
 function App() {
-  
+
   return (
     <div className="App">
       <BrowserRouter>

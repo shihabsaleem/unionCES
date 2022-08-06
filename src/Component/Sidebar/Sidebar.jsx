@@ -21,11 +21,11 @@ const Sidebar = () => {
           </li>
           <li>
             <HowToVoteIcon className="icon" />
-            <span>Cast Vote</span>
+            <span>Add Candidate</span>
           </li>
           <li>
             <HowToRegIcon className="icon" />
-            <span>Candidates</span>
+            <span>List</span>
           </li>
           <li>
             <EqualizerIcon className="icon" />
