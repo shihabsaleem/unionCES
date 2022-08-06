@@ -1,0 +1,29 @@
+.navbar {
+    height: 50px;
+    border-bottom: 0.25px solid #333;
+    background-color: #fdcf09;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        justify-content: right;
+
+
+        .item {
+            display: flex;
+            color: #333;
+            font-weight: 500;
+            align-items: center;
+
+            .item {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+            }
+        }
+    }
+}
