@@ -5,6 +5,28 @@
     padding: 10px;
     box-shadow: 2px 4px 8px 0.5px grey;
     border-radius: 4px;
+    height: 100px;
 
+    .left,
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            font-weight: 600;
+            color: #333333;
+            font-size: 14px;
+        }
+        .counter {
+            font-size:45px;
+            font-weight: 500;
+            color: #555555;
+        }
+    .icon{
+        font-size: 75px;
+        color: #ddd;
+        
+    }}
 
 }
