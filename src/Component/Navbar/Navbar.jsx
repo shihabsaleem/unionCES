@@ -6,8 +6,10 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <div className="item">
-          Hi, User <AccountCircleIcon />
+        <div className="items">
+          <div className="item">
+            Hi, User <AccountCircleIcon className="icon" />
+          </div>
         </div>
       </div>
     </div>
