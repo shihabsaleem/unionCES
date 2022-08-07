@@ -3,6 +3,8 @@ import Navbar from "../../Component/Navbar/Navbar";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Widget from "../../Component/Widget/Widget";
 import "./home.scss";
+import Featured from "../../Component/Featured/Featured";
+import Chart from "../../Component/Chart/Chart";
 
 const Home = () => {
   return (
@@ -16,6 +18,9 @@ const Home = () => {
           <Widget type="tfemales" />
           <Widget type="tpoll" />
           <Widget type="rvote" />
+        </div>
+        <div className="charts">
+          <Featured/><Chart/>
         </div>
       </div>
     </div>
