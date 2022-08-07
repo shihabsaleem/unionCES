@@ -5,6 +5,7 @@ import Widget from "../../Component/Widget/Widget";
 import "./home.scss";
 import Featured from "../../Component/Featured/Featured";
 import Chart from "../../Component/Chart/Chart";
+import Table from "../../Component/Table/Table"
 
 const Home = () => {
   return (
@@ -23,7 +24,8 @@ const Home = () => {
           <Featured/><Chart/>
         </div>
         <div className="listContainer">
-          <div className="listTitle">Poll Result</div>
+          <div className="listTitle">Poll Result
+          <Table/></div>
         </div>
       </div>
     </div>

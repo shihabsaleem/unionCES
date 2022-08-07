@@ -1,5 +1,4 @@
 import React from "react";
-import "./table.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,30 +8,30 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 const List = () => {
-  const row = [
+  const rows = [
     {
-      id: 001,
+      id: 101,
       name: "John Doe",
       seat: "Chair",
       sem: 7,
-      votes: 100,
+      votes: 110,
     },
     {
-      id: 002,
+      id: 102,
       name: "Jon Doe",
       seat: "Chair",
       sem: 7,
       votes: 90,
     },
     {
-      id: 003,
+      id: 103,
       name: "Jon Deo",
       seat: "Chair",
       sem: 7,
       votes: 120,
     },
     {
-      id: 004,
+      id: 104,
       name: "Hon Doe",
       seat: "Vice Chair",
       sem: 7,
@@ -44,12 +43,11 @@ const List = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Poll Result</TableCell>
-            <TableCell align="right">id</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Semester</TableCell>
-            <TableCell align="right">Seat</TableCell>
-            <TableCell align="right">Votes</TableCell>
+            <TableCell className="tablecell">Name</TableCell>
+            <TableCell className="tablecell">ID</TableCell>
+            <TableCell className="tablecell">Semester</TableCell>
+            <TableCell className="tablecell">Seat</TableCell>
+            <TableCell className="tablecell">Votes</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -58,24 +56,11 @@ const List = () => {
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell className="tablecell" align="right">
-                {row.id}
-              </TableCell>
-              <TableCell className="tablecell" align="right">
-                {row.name}
-              </TableCell>
-              <TableCell className="tablecell" align="right">
-                {row.sem}
-              </TableCell>
-              <TableCell className="tablecell" align="right">
-                {row.seat}
-              </TableCell>
-              <TableCell className="tablecell" align="right">
-                {row.votes}
-              </TableCell>
+              <TableCell className="tablecell">{row.name}</TableCell>
+              <TableCell className="tablecell">{row.id}</TableCell>
+              <TableCell className="tablecell">{row.sem}</TableCell>
+              <TableCell className="tablecell">{row.seat}</TableCell>
+              <TableCell className="tablecell">{row.votes}</TableCell>
             </TableRow>
           ))}
         </TableBody>
