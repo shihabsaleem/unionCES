@@ -22,6 +22,9 @@ const Home = () => {
         <div className="charts">
           <Featured/><Chart/>
         </div>
+        <div className="listContainer">
+          <div className="listTitle">Poll Result</div>
+        </div>
       </div>
     </div>
   );
