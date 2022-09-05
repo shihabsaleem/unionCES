@@ -40,15 +40,46 @@
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
+                    justify-content: space-around;
 
                     .formInput {
                         width: 40%;
 
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            font-size: 12px;
+                            color: #333;
+                        }
+
                         input {
                             width: 100%;
-                        padding: 5px;
-                    border: none;border-bottom: 1px solid gray;}
+                            padding: 5px;
+                            border: none;
+                            border-bottom: 1px solid gray;
+                        }
                     }
+                }
+
+                button {
+                    width: 150px;
+                    background-color: #fdcf09;
+                    border: none;
+                    padding: 5px;
+                    color: #555;
+                    font-weight: 700;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    margin-top: 10px;
+
+                    &:hover {
+                        color: #fdcf09;
+                        background-color: #333;
+                        border-radius: 2px;
+                        border: #fdcf09;
+                    }
+
                 }
             }
         }
