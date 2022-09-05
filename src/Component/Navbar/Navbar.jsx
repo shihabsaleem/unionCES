@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="items">
           <div className="item">
-            Hi, User <AccountCircleIcon className="icon" />
+            Hi, Admin <AccountCircleIcon className="icon" />
           </div>
         </div>
       </div>
