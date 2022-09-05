@@ -17,7 +17,6 @@ const rows = [
     dept: "CS",
     sem: 7,
     seat: "Chair",
-    action: "Delete",
   },
   {
     id: 2019002,
@@ -25,7 +24,6 @@ const rows = [
     dept: "EE",
     sem: 7,
     seat: "Chair",
-    action: "Delete",
   },
 ];
 
@@ -50,7 +48,7 @@ const datatable = () => {
         rows={rows}
         columns={columns.concat(actionColumn)}
         pageSize={8}
-        rowsPerPageOptions={[5]}
+        rowsPerPageOptions={[8]}
         checkboxSelection
       />
     </div>
