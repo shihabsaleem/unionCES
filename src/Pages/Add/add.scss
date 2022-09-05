@@ -23,17 +23,33 @@
             .left {
                 flex: 1;
                 text-align: center;
-                img{
+
+                img {
                     width: 200px;
                     height: 150px;
                     padding: 20px;
-                   object-fit: contain;
-                   
+                    object-fit: contain;
+
                 }
             }
 
             .right {
                 flex: 2;
+
+                form {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+
+                    .formInput {
+                        width: 40%;
+
+                        input {
+                            width: 100%;
+                        padding: 5px;
+                    border: none;border-bottom: 1px solid gray;}
+                    }
+                }
             }
         }
     }

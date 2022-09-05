@@ -41,7 +41,7 @@ const Add = () => {
               </div>
               <div className="formInput">
                 <label>Profile</label>
-                <textarea type="text" placeholder="Bio" />
+                <input type="text" placeholder="Bio" />
               </div>
               <button>send</button>
             </form>
