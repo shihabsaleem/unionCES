@@ -1,25 +1,20 @@
-import React from 'react'
-import './list.scss'
-import Sidebar from '../../Component/Sidebar/Sidebar'
-import Navbar from '../../Component/Navbar/Navbar'
-import Table from '../../Component/Table/Table'
-
+import React from "react";
+import "./list.scss";
+import Sidebar from "../../Component/Sidebar/Sidebar";
+import Navbar from "../../Component/Navbar/Navbar";
+import Table from "../../Component/Table/Table";
 
 const List = () => {
   return (
-    <div className="home">
+    <div className="List">
       <Sidebar />
-      <div className="homeContainer">
+      <div className="ListContainer">
         <Navbar />
-       
+
         
-        <div className="listContainer">
-          <div className="listTitle">Poll Result
-          <Table/></div>
-        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;
