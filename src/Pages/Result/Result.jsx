@@ -2,7 +2,7 @@ import React from 'react'
 import './result.scss'
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Navbar from "../../Component/Navbar/Navbar";
-import Datatable from "../../Component/Datatable/Datatable";
+import Restable from "../../Component/Restable/Restable";
 
 const Result = () => {
   return (
@@ -10,6 +10,7 @@ const Result = () => {
       <Sidebar />
       <div className="resultContainer">
         <Navbar />
+        <Restable/>
       </div>
     </div>
   )
