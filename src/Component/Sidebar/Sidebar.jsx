@@ -5,39 +5,48 @@ import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">UNION</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">UNION</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <li>
-            <HomeIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
-          <li>
-            <HowToVoteIcon className="icon" />
-            <span>Add Candidate</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+           
+            <li>
+              <HomeIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
+          <Link to="/Admin/add" style={{ textDecoration: "none" }}>
+          
+            <li>
+              <HowToVoteIcon className="icon" />
+              <span>Add Candidate</span>
+            </li>
+          </Link>
+          <Link to="/Admin/List" style={{ textDecoration: "none" }}>
           <li>
             <HowToRegIcon className="icon" />
             <span>List</span>
-          </li>
+          </li></Link><Link to="/admin/result" style={{ textDecoration: "none" }}>
           <li>
             <EqualizerIcon className="icon" />
             <span>Result</span>
-          </li>
+          </li></Link><Link to="/admin/logout" style={{ textDecoration: "none" }}>
           <li>
             <LogoutIcon className="icon" />
             <span>Logout</span>
-          </li>
+          </li></Link>
         </ul>
       </div>
-      
     </div>
   );
 };

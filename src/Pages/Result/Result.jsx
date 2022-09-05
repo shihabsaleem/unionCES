@@ -1,13 +1,14 @@
 import React from 'react'
 import './result.scss'
-import Navbar from '../../Component/Navbar/Navbar'
-import Sidebar from '../../Component/Sidebar/Sidebar'
+import Sidebar from "../../Component/Sidebar/Sidebar";
+import Navbar from "../../Component/Navbar/Navbar";
+import Datatable from "../../Component/Datatable/Datatable";
 
 const Result = () => {
   return (
-    <div className="home">
+    <div className="result">
       <Sidebar />
-      <div className="homeContainer">
+      <div className="resultContainer">
         <Navbar />
       </div>
     </div>
