@@ -14,28 +14,28 @@ const List = () => {
       name: "John Doe",
       seat: "Chair",
       sem: 7,
-      votes: 110,
+      
     },
     {
       id: 102,
       name: "Jon Doe",
       seat: "Vice Chair",
       sem: 7,
-      votes: 90,
+      
     },
     {
       id: 103,
       name: "Jon Deo",
       seat: "Secretary",
       sem: 7,
-      votes: 120,
+     
     },
     {
       id: 104,
       name: "Hon Doe",
       seat: "Lady Rep",
       sem: 7,
-      votes: 110,
+      
     },
   ];
   return (
@@ -47,7 +47,7 @@ const List = () => {
             <TableCell className="tablecell">ID</TableCell>
             <TableCell className="tablecell">Semester</TableCell>
             <TableCell className="tablecell">Seat</TableCell>
-            <TableCell className="tablecell">Votes</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -60,7 +60,7 @@ const List = () => {
               <TableCell className="tablecell">{row.id}</TableCell>
               <TableCell className="tablecell">{row.sem}</TableCell>
               <TableCell className="tablecell">{row.seat}</TableCell>
-              <TableCell className="tablecell">{row.votes}</TableCell>
+              
             </TableRow>
           ))}
         </TableBody>
