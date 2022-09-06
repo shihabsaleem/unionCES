@@ -4,6 +4,7 @@ import List from "./Pages/List/List"
 import Result from "./Pages/Result/Result"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login";
+import Vhome from "./Pages/Vhome/Vhome"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="Admin/Add" element={<Add />}/>
             <Route path="Admin/List" element={<List />}/>
             <Route path="Admin/Result" element={<Result />}/>
+            <Route path="Voter/Home" element={<Vhome />}/>
           </Route>
         </Routes>
       </BrowserRouter>
