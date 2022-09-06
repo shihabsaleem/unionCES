@@ -11,36 +11,36 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/eofficer" style={{ textDecoration: "none" }}>
           <span className="logo">UNION</span>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/eofficer" style={{ textDecoration: "none" }}>
            
             <li>
               <HomeIcon className="icon" />
               <span>Dashboard</span>
             </li>
           </Link>
-          <Link to="/Admin/add" style={{ textDecoration: "none" }}>
+          <Link to="/eofficer/add" style={{ textDecoration: "none" }}>
           
             <li>
               <HowToVoteIcon className="icon" />
               <span>Add Candidate</span>
             </li>
           </Link>
-          <Link to="/Admin/List" style={{ textDecoration: "none" }}>
+          <Link to="/eofficer/List" style={{ textDecoration: "none" }}>
           <li>
             <HowToRegIcon className="icon" />
             <span>List</span>
-          </li></Link><Link to="/admin/result" style={{ textDecoration: "none" }}>
+          </li></Link><Link to="/eofficer/result" style={{ textDecoration: "none" }}>
           <li>
             <EqualizerIcon className="icon" />
             <span>Result</span>
-          </li></Link><Link to="/admin/logout" style={{ textDecoration: "none" }}>
+          </li></Link><Link to="/eofficer/logout" style={{ textDecoration: "none" }}>
           <li>
             <LogoutIcon className="icon" />
             <span>Logout</span>

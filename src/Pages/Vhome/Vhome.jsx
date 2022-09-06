@@ -1,14 +1,14 @@
 import React from 'react'
 import "./vhome.scss"
-import Sidebar from '../../Component/Sidebar/Sidebar'
-import Navbar from '../../Component/Vnavbar/Vnavbar'
+import Vsidebar from '../../Component/Vsidebar/Vsidebar'
+import Vnavbar from '../../Component/Vnavbar/Vnavbar'
 
 const Vhome = () => {
   return (
-    <div className="List">
-      <Sidebar />
-      <div className="ListContainer">
-        <Navbar />
+    <div className="home">
+      <Vsidebar />
+      <div className="homeContainer">
+        <Vnavbar />
 
         
       </div>

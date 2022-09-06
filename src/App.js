@@ -12,13 +12,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/">
+          <Route path="/eofficer">
             <Route index element={<Home />} />
             <Route path="Login" element={<Login/>}/>
-            <Route path="Admin/Add" element={<Add />}/>
-            <Route path="Admin/List" element={<List />}/>
-            <Route path="Admin/Result" element={<Result />}/>
-            <Route path="Voter/Home" element={<Vhome />}/>
+            <Route path="Add" element={<Add />}/>
+            <Route path="List" element={<List />}/>
+            <Route path="Result" element={<Result />}/>
+          </Route>
+          <Route path="/Voter">
+            <Route index element={<Vhome />}/>
           </Route>
         </Routes>
       </BrowserRouter>
