@@ -2,7 +2,7 @@ import React from "react";
 import "./add.scss";
 import Sidebar from "../../Component/Sidebar/Sidebar";
 import Navbar from "../../Component/Navbar/Navbar";
-import logo from "./logo.svg";
+import logo from "../../Assets/logo.svg";
 
 const Add = () => {
   return (
