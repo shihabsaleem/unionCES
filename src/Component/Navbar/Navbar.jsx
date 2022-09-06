@@ -11,7 +11,7 @@ const Navbar = () => {
             Hi, Admin <AccountCircleIcon className="icon" />
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

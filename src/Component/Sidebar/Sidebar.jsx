@@ -6,13 +6,14 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
+import logo from "../../Assets/logoh.svg";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/eofficer" style={{ textDecoration: "none" }}>
-          <span className="logo">UNION</span>
+        <Link to="/eofficer" style={{ width:"100px" }}>
+          <span className="logo"> <img src={logo} /></span>
         </Link>
       </div>
       <hr />
