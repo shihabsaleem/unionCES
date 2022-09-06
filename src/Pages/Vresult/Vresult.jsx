@@ -2,6 +2,7 @@ import React from "react";
 import "./vresult.scss";
 import Vsidebar from "../../Component/Vsidebar/Vsidebar";
 import Vnavbar from "../../Component/Vnavbar/Vnavbar";
+import Table from "../../Component/Table/Table";
 
 const Vresult = () => {
   return (
@@ -9,7 +10,9 @@ const Vresult = () => {
       <Vsidebar />
       <div className="resContainer">
         <Vnavbar />
-        Result
+        <div className="result">
+          <Table />
+        </div>
       </div>
     </div>
   );
