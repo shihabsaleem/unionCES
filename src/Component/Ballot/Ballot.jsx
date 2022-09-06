@@ -16,21 +16,15 @@ const Ballot = () => {
       sem: 7,
     },
     {
-      id: 102,
-      name: "Jon Doe",
-      seat: "Vice Chair",
-      sem: 7,
-    },
-    {
       id: 103,
-      name: "Jon Deo",
+      name: "Joe Den",
       seat: "Secretary",
       sem: 7,
     },
     {
-      id: 104,
-      name: "Hon Doe",
-      seat: "Lady Rep",
+      id: 102,
+      name: "Jon Doe",
+      seat: "Vice Chair",
       sem: 7,
     },
   ];
@@ -40,7 +34,7 @@ const Ballot = () => {
         <TableHead>
           <TableRow>
             <TableCell className="tablecell">Name</TableCell>
-            <TableCell className="tablecell">Semester</TableCell>
+            <TableCell className="tablecell">Sem</TableCell>
             <TableCell className="tablecell">Seat</TableCell>
           </TableRow>
         </TableHead>
