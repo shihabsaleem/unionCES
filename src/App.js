@@ -4,7 +4,10 @@ import List from "./Pages/List/List";
 import Result from "./Pages/Result/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login";
-import Vhome from "./Pages/Vcast/Vcast";
+import Vcast from "./Pages/Vcast/Vcast";
+import Vhome from "./Pages/Vhome/Vhome";
+import Vresult from "./Pages/Vresult/Vresult";
+import Vcand from "./Pages/Vcand/Vcand";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           </Route>
           <Route path="/Voter">
             <Route index element={<Vhome />} />
+            <Route path="cast" element={<Vcast />} />
+            <Route path="result" element={<Vresult />} />
+            <Route path="voted" element={<Vcand />} />
           </Route>
         </Routes>
       </BrowserRouter>

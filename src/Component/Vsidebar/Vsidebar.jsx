@@ -4,6 +4,7 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import LogoutIcon from "@mui/icons-material/Logout";
+import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logoh.svg";
 
@@ -11,7 +12,7 @@ const Vsidebar = () => {
   return (
     <div className="Vsidebar">
       <div className="top">
-        <Link to="/voter" style={{ width:"100px" }}>
+        <Link to="/voter" style={{ width: "100px" }}>
           <span className="logo">
             <img src={logo} />
           </span>
@@ -20,20 +21,26 @@ const Vsidebar = () => {
       <hr />
       <div className="center">
         <ul>
+          <Link to="/voter" style={{ textDecoration: "none" }}>
+            <li>
+              <HomeIcon className="icon" />
+              <span>Home</span>
+            </li>
+          </Link>
           <Link to="/voter/cast" style={{ textDecoration: "none" }}>
             <li>
               <HowToVoteIcon className="icon" />
               <span>Cast Vote</span>
             </li>
           </Link>
-          <Link to="/voter" style={{ textDecoration: "none" }}>
+          <Link to="/voter/voted" style={{ textDecoration: "none" }}>
             <li>
               <HowToRegIcon className="icon" />
               <span>Candidate</span>
             </li>
           </Link>
 
-          <Link to="/result" style={{ textDecoration: "none" }}>
+          <Link to="/voter/result" style={{ textDecoration: "none" }}>
             <li>
               <EqualizerIcon className="icon" />
               <span>Result</span>
