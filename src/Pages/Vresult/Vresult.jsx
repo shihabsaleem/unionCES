@@ -3,7 +3,7 @@ import "./vresult.scss";
 import Vsidebar from "../../Component/Vsidebar/Vsidebar";
 import Vnavbar from "../../Component/Vnavbar/Vnavbar";
 
-const Vres = () => {
+const Vresult = () => {
   return (
     <div className="res">
       <Vsidebar />
@@ -15,4 +15,4 @@ const Vres = () => {
   );
 };
 
-export default Vres;
+export default Vresult;
