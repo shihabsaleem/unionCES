@@ -9,14 +9,9 @@ import Vhome from "./Pages/Vhome/Vhome";
 import Vresult from "./Pages/Vresult/Vresult";
 import Vcand from "./Pages/Vcand/Vcand";
 
-
-
-
-
 function App() {
   return (
     <div className="App">
-    
       <BrowserRouter>
         <Routes>
           <Route path="/">
