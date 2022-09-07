@@ -1,9 +1,9 @@
 import React from 'react'
-import './login.scss'
+import Signin from "../../Component/Login/Login"
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div><Signin/></div>
   )
 }
 
