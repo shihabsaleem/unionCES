@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider } from '@moeindana/google-oauth';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

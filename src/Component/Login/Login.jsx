@@ -1,18 +1,17 @@
 import React from "react";
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@moeindana/google-oauth";
 
 const Login = () => {
   return (
     <div>
       <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          console.log(credentialResponse);
+        onSuccess={(response) => {
+          console.log(response);
         }}
         onError={() => {
           console.log("Login Failed");
         }}
       />
-      
     </div>
   );
 };
