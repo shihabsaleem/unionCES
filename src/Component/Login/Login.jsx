@@ -8,6 +8,8 @@ const Login = () => {
       <GoogleLogin
         onSuccess={(response) => {
           console.log(response);
+          var decoded = jwt_decode(response.credential);
+          console.log(decoded)
         }}
         onError={() => {
           console.log("Login Failed");

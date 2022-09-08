@@ -1,10 +1,18 @@
-import React from 'react'
-import Signin from "../../Component/Login/Login.jsx"
+import React from "react";
+import Signin from "../../Component/Login/Login.jsx";
+import clg from "../../Assets/clg.jpg";
 
 const Login = () => {
   return (
-    <div><Signin/></div>
-  )
-}
+    <div className="login">
+      <div>
+        <img src={clg} />
+      </div>
+      <div className="button">
+        <Signin />
+      </div>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
