@@ -46,7 +46,7 @@ const Vsidebar = () => {
               <span>Result</span>
             </li>
           </Link>
-          <Link to="/user/logout" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <LogoutIcon className="icon" />
               <span>Logout</span>

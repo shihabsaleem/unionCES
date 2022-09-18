@@ -8,14 +8,15 @@ import Vcast from "./Pages/Vcast/Vcast";
 import Vhome from "./Pages/Vhome/Vhome";
 import Vresult from "./Pages/Vresult/Vresult";
 import Vcand from "./Pages/Vcand/Vcand";
-
+import Sample from "./Pages/Login/Sample";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Login />} />
+            <Route index element={ <Sample/>} />
+     
           </Route>
           <Route path="/eofficer">
             <Route index element={<Home />} />
@@ -31,6 +32,7 @@ function App() {
             <Route path="voted" element={<Vcand />} />
           </Route>
         </Routes>
+      
       </BrowserRouter>
     </div>
   );

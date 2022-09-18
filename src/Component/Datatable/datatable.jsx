@@ -27,7 +27,7 @@ const rows = [
   },
 ];
 
-const datatable = () => {
+const Datatable = () => {
   const actionColumn = [
     {
       field: "action",
@@ -55,4 +55,4 @@ const datatable = () => {
   );
 };
 
-export default datatable;
+export default Datatable;
