@@ -3,7 +3,7 @@ import Add from "./Pages/Add/Add";
 import List from "./Pages/List/List";
 import Result from "./Pages/Result/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Pages/Login/Login";
+
 import Vcast from "./Pages/Vcast/Vcast";
 import Vhome from "./Pages/Vhome/Vhome";
 import Vresult from "./Pages/Vresult/Vresult";
@@ -15,12 +15,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={ <Sample/>} />
-     
+            <Route index element={<Sample />} />
           </Route>
           <Route path="/eofficer">
             <Route index element={<Home />} />
-            <Route path="Login" element={<Login />} />
             <Route path="Add" element={<Add />} />
             <Route path="List" element={<List />} />
             <Route path="Result" element={<Result />} />
@@ -32,7 +30,6 @@ function App() {
             <Route path="voted" element={<Vcand />} />
           </Route>
         </Routes>
-      
       </BrowserRouter>
     </div>
   );
