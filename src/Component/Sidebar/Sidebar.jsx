@@ -41,7 +41,7 @@ const Sidebar = () => {
           <li>
             <EqualizerIcon className="icon" />
             <span>Result</span>
-          </li></Link><Link to="/eofficer/logout" style={{ textDecoration: "none" }}>
+          </li></Link><Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <LogoutIcon className="icon" />
             <span>Logout</span>
