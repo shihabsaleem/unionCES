@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
 
 const columns = [
   { field: "id", headerName: "Adm No", width: 150 },
@@ -10,24 +11,12 @@ const columns = [
   { field: "seat", headerName: "Seat", width: 150 },
 ];
 
-const rows = [
-  {
-    id: 2019001,
-    name: "John Doe",
-    dept: "CS",
-    sem: 7,
-    seat: "Chair",
-  },
-  {
-    id: 2019002,
-    name: "Jon Doe",
-    dept: "EE",
-    sem: 7,
-    seat: "Chair",
-  },
-];
-
 const Datatable = () => {
+  const [rows, setRows] = useState()
+  useEffect(()=>{
+    axios.get("http://localhost:8000/api/table")
+    .then(e=>setRows(e.data))
+  },[])
   const actionColumn = [
     {
       field: "action",
@@ -44,13 +33,13 @@ const Datatable = () => {
   ];
   return (
     <div className="datatable">
-      <DataGrid
+      {rows && <DataGrid
         rows={rows}
         columns={columns.concat(actionColumn)}
         pageSize={8}
         rowsPerPageOptions={[8]}
         checkboxSelection
-      />
+      />}
     </div>
   );
 };
