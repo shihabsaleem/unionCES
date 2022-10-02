@@ -5,7 +5,7 @@ import Widget from "../../Component/Widget/Widget";
 import "./home.scss";
 import Featured from "../../Component/Featured/Featured";
 import Chart from "../../Component/Chart/Chart";
-import Table from "../../Component/Table/Table"
+import Table from "../../Component/Table/Table";
 
 const Home = () => {
   return (
@@ -21,11 +21,14 @@ const Home = () => {
           <Widget type="rvote" />
         </div>
         <div className="charts">
-          <Featured/><Chart/>
+          <Featured />
+          <Chart />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Poll Result
-          <Table/></div>
+          <div className="listTitle">
+            Poll Result
+            <Table />
+          </div>
         </div>
       </div>
     </div>
