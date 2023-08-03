@@ -6,9 +6,13 @@
 
     .top {
         height: 50px;
+        max-height: 50px;
+        /* Limit top height to 50px */
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #fff;
+        // border-bottom: 1px solid #c1c1c1;
 
         .logo {
             font-size: 20px;
@@ -48,8 +52,11 @@
             .icon {
                 font-size: 24px;
                 color: #ffea8f;
-                /* Updated primary color */
                 margin-right: 10px;
+
+                &:hover {
+                    color: #fdcf09;
+                }
             }
 
             span {

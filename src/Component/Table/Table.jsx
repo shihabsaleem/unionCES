@@ -6,14 +6,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import "./table.scss";
 import axios from "axios";
 
 const List = () => {
+  const [rows, setRows] = useState([]);
 
-  const [rows, setRows] = useState()
-  useEffect(()=>{
-    axios.get("http://localhost:8000/api/result").then(e=>setRows(e.data))
-  },[])
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/result").then((response) => {
+      setRows(response.data);
+    });
+  }, []);
+
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -23,11 +27,10 @@ const List = () => {
             <TableCell className="tablecell">ID</TableCell>
             <TableCell className="tablecell">Semester</TableCell>
             <TableCell className="tablecell">Seat</TableCell>
-            
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows && rows.map((row) => (
+          {rows.map((row) => (
             <TableRow
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -36,7 +39,6 @@ const List = () => {
               <TableCell className="tablecell">{row.admission}</TableCell>
               <TableCell className="tablecell">{row.semester}</TableCell>
               <TableCell className="tablecell">{row.seat}</TableCell>
-              
             </TableRow>
           ))}
         </TableBody>

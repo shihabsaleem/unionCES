@@ -15,7 +15,7 @@ const Sidebar = () => {
         <Link to="/eofficer" style={{ width: "100px" }}>
           <span className="logo">
             {" "}
-            <img src={logo} />
+            <img src={logo} alt="Logo" />
           </span>
         </Link>
       </div>

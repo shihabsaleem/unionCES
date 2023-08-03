@@ -15,7 +15,7 @@ const Featured = () => {
             value={80}
             text="80%"
             strokeWidth={6}
-            styles={buildStyles({ pathColor: "#fdcf09", textColor: "#555" })}
+            styles={buildStyles({ pathColor: "#ffea8f", textColor: "#555" })}
           />
         </div>
       </div>
