@@ -4,43 +4,53 @@
 
     .addContainer {
         flex: 6;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+
 
         .top,
         .bottom {
-            -webkit-box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.47);
-            box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 6px;
             margin: 20px;
             padding: 10px;
             display: flex;
 
-            h1 {
-                color: #333;
-                font-size: 20px;
-
-            }
-
-            .left {
+            >div {
                 flex: 1;
-                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+
+                &:first-child {
+                    border-right: 1px solid #ccc;
+                }
+
+                h1 {
+                    color: #555555;
+                    font-size: 20px;
+                }
 
                 img {
-                    width: 200px;
-                    height: 150px;
-                    padding: 20px;
-                    object-fit: contain;
-
+                    max-width: 150px;
+                    height: auto;
+                    padding: 5px;
+                    margin: 0 auto;
+                    /* Center the image horizontally */
                 }
-            }
-
-            .right {
-                flex: 2;
 
                 form {
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
                     justify-content: space-around;
+
+                    @media (max-width: 768px) {
+                        flex-direction: column;
+                    }
 
                     .formInput {
                         width: 40%;
@@ -50,7 +60,7 @@
                             align-items: center;
                             gap: 10px;
                             font-size: 12px;
-                            color: #333;
+                            color: #555555;
                         }
 
                         input {
@@ -64,22 +74,21 @@
 
                 button {
                     width: 150px;
-                    background-color: #fdcf09;
+                    background-color: #ffea8f;
                     border: none;
                     padding: 5px;
-                    color: #555;
-                    font-weight: 700;
+                    color: #555555;
+                    font-weight: 500;
                     border-radius: 2px;
                     cursor: pointer;
                     margin-top: 10px;
+                    transition: background-color 0.3s ease-in-out;
 
                     &:hover {
-                        color: #fdcf09;
-                        background-color: #333;
+                        color: #ffffff;
+                        background-color: #555555;
                         border-radius: 2px;
-                        border: #fdcf09;
                     }
-
                 }
             }
         }
