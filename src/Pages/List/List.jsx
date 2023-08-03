@@ -6,11 +6,10 @@ import Datatable from "../../Component/Datatable/Datatable";
 
 const List = () => {
   return (
-    <div className="List">
+    <div className="list">
       <Sidebar />
-      <div className="ListContainer">
+      <div className="listContainer">
         <Navbar />
-
         <Datatable />
       </div>
     </div>

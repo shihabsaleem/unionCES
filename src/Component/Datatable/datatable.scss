@@ -1,18 +1,28 @@
 .datatable {
-    height: 500px;
     padding: 20px;
-
+    height: 100%;
+  
     .cellAction {
-        display: flex;
-        align-items: center;
-
-
-        .delButton {
-            color: crimson;
-            border-radius: 5px;
-        padding: 2px 5px;
+      display: flex;
+      align-items: center;
+  
+      .delButton {
+        color: crimson;
+        border-radius: 5px;
+        padding: 2px 10px;
         border: 1px solid crimson;
         cursor: pointer;
-        }
+      }
     }
-}
+  
+    @media (max-width: 768px) {
+      padding: 10px;
+  
+      .cellAction {
+        .delButton {
+          padding: 2px 5px;
+        }
+      }
+    }
+  }
+  

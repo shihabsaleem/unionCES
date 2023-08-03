@@ -12,10 +12,20 @@ const columns = [
 ];
 
 const Datatable = () => {
-  const [rows, setRows] = useState();
+  const [rows, setRows] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:8000/api/table").then((e) => setRows(e.data));
+    axios
+      .get("http://localhost:8000/api/table")
+      .then((response) => {
+        console.log("API Response:", response.data);
+        setRows(response.data);
+      })
+      .catch((error) => {
+        console.error("API Error:", error);
+      });
   }, []);
+
   const actionColumn = [
     {
       field: "action",
@@ -30,14 +40,15 @@ const Datatable = () => {
       },
     },
   ];
+
   return (
     <div className="datatable">
-      {rows && (
+      {rows.length > 0 && (
         <DataGrid
           rows={rows}
           columns={columns.concat(actionColumn)}
-          pageSize={8}
-          rowsPerPageOptions={[8]}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
           checkboxSelection
         />
       )}
