@@ -53,7 +53,7 @@ const Vcast = () => {
       <div className="castContainer">
         <Vnavbar />
         <div className="top">
-          <h1>Cast the Vote !</h1>
+        <div>Cast the Vote</div>
         </div>
         <div className="bottom">
           <div className="left">

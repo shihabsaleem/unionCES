@@ -35,10 +35,10 @@ const List = () => {
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell className="tablecell">{row.name}</TableCell>
-              <TableCell className="tablecell">{row.admission}</TableCell>
-              <TableCell className="tablecell">{row.semester}</TableCell>
-              <TableCell className="tablecell">{row.seat}</TableCell>
+              <TableCell className="tablecell2">{row.name}</TableCell>
+              <TableCell className="tablecell2">{row.admission}</TableCell>
+              <TableCell className="tablecell2">{row.semester}</TableCell>
+              <TableCell className="tablecell2">{row.seat}</TableCell>
             </TableRow>
           ))}
         </TableBody>
