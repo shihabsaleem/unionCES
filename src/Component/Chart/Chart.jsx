@@ -51,7 +51,6 @@ const data = [
 const Chart = () => {
   return (
     <div className="chart">
-      
       <ResponsiveContainer width="100%" aspect={4 / 1}>
         <AreaChart
           width={730}

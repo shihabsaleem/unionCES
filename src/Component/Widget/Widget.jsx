@@ -53,14 +53,12 @@ const Widget = ({ type }) => {
   }
 
   return (
-    <div>
-      <div className="widget">
-        <div className="left">
-          <span className="title">{data.title}</span>
-          <span className="counter">{data.counter}</span>
-        </div>
-        <div className="right">{data.icon}</div>
+    <div className="widget">
+      <div className="left">
+        <span className="title">{data.title}</span>
+        <span className="counter">{data.counter}</span>
       </div>
+      <div className="right">{data.icon}</div>
     </div>
   );
 };
