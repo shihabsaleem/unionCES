@@ -1,34 +1,73 @@
 .featured {
     flex: 2.5;
-    -webkit-box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.47);
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
-    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    /* Increased border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 15px;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
     .top {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: #555;
+        color: #555555;
+        /* Primary text color */
+        margin-bottom: 10px;
 
         .title {
             font-size: 16px;
             font-weight: 500;
+            /* Adjusted font weight */
+            color: #555555;
+            /* Primary text color */
         }
     }
 
-    .bottom{
+    .bottom {
         display: flex;
-        padding: 25px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 15px;
         font-weight: 500;
+        color: #555555;
+        /* Primary text color */
 
-        .featuredChart{
-            width: 100px;
-            height: 100px;
+        .featuredChart {
+            width: 120px;
+            /* Increased width */
+            height: 120px;
+            /* Increased height */
+        }
+    }
+}
+
+// Responsive Breakpoints
+@media screen and (max-width: 768px) {
+    .featured {
+        flex: 1;
+        padding: 12px;
+
+        .top {
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
+        .bottom {
+            gap: 10px;
+            font-size: 12px;
+
+            .featuredChart {
+                width: 100px;
+                /* Increased width */
+                height: 100px;
+                /* Increased height */
+            }
+        }
     }
 }

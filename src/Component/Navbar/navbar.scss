@@ -1,34 +1,72 @@
 .navbar {
-    height: 50px;
-    border-bottom: 0.5px solid #c1c1c1;
-    background-color: #fdcf09;
+    height: 60px;
+    border-bottom: 1px solid #c1c1c1;
+    background-color: #ffea8f;
+    display: flex;
     align-items: center;
     font-size: 14px;
-    color: #555;
+    color: #333;
+    /* Changed text color for better contrast */
 
     .wrapper {
         display: flex;
         align-items: center;
-        padding: 20px;
-        justify-content: right;
-
+        padding: 0 20px;
+        justify-content: flex-end;
 
         .items {
             display: flex;
             align-items: center;
-            color: #333;
-            font-weight: 500;
 
             .item {
                 display: flex;
                 align-items: center;
                 margin-right: 20px;
+                cursor: pointer;
+                transition: color 0.3s ease-in-out;
 
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &:hover {
+                    color: #555;
+                    /* Changed hover color for better contrast */
+                }
 
                 .icon {
-                    padding-left: 5px;
                     font-size: 20px;
-                    color: #fff;
+                    margin-right: 5px;
+                    /* Adjusted margin for better spacing */
+                }
+
+                span {
+                    display: none;
+                    /* Hide span text for a cleaner look */
+                }
+            }
+        }
+    }
+}
+
+// Responsive Breakpoints
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: 50px;
+    }
+
+    .wrapper {
+        padding: 0 10px;
+
+        .items {
+            .item {
+                margin-right: 10px;
+                font-size: 12px;
+                padding: 5px;
+
+                .icon {
+                    font-size: 18px;
+                    margin-right: 3px;
                 }
             }
         }

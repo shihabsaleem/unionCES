@@ -11,11 +11,10 @@ const Vhome = () => {
       <Vsidebar />
       <div className="homeContainer">
         <Vnavbar />
-        <h1>Happy Voting.</h1>
-        <div className="circle">
-          <Featured />
-        </div>
+
+        {/* <div className="circle"></div> */}
         <div className="widgets">
+          <Featured />
           <Widget type="tcount" />
 
           <Widget type="tpoll" />

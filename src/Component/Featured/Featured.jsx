@@ -7,7 +7,7 @@ const Featured = () => {
   return (
     <div className="featured">
       <div className="top">
-        <h3 className="title>">Polling</h3>
+        <div className="title>">Polling</div>
       </div>
       <div className="bottom">
         <div className="featuredChart">
@@ -15,7 +15,7 @@ const Featured = () => {
             value={80}
             text="80%"
             strokeWidth={6}
-            styles={buildStyles({ pathColor: "#fdcf09", textColor:"#555" })}
+            styles={buildStyles({ pathColor: "#fdcf09", textColor: "#555" })}
           />
         </div>
       </div>

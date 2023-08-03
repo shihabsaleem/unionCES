@@ -1,9 +1,10 @@
+// Vsidebar.scss
+
 .Vsidebar {
     flex: 1;
     border-right: 0.5px solid #c1c1c1;
     min-height: 100vh;
     background-color: white;
-
 
     .top {
         height: 50px;
@@ -12,23 +13,24 @@
         justify-content: center;
 
         .logo {
-            width: 200px;
+            width: 180px;
             color: #555;
             padding-top: 10px;
         }
     }
 
     hr {
-        height: 0;
-        border: 0.5px solid #c1c1c1;
+        height: 0.5px;
+        border: none;
+        background-color: #c1c1c1;
+        margin: 10px 0;
     }
-
 
     .center {
         padding-left: 10px;
 
         ul {
-            list-style: none !important;
+            list-style: none;
             margin: 0;
             padding: 0;
         }
@@ -36,26 +38,25 @@
         li {
             display: flex;
             align-items: center;
-            padding: 6px;
+            padding: 10px;
             cursor: pointer;
-
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
 
             &:hover {
-                background-color: #55555539;
-                border-radius: 5px 0px 0px 5px;
-                transition: ease-in;
+                background-color: #ffea8f;
             }
 
             .icon {
                 font-size: 24px;
-                color: #fdcf09;
+                color: #ffea8f;
             }
 
             span {
-                font-style: 12px;
+                font-size: 14px;
                 font-weight: 500;
                 color: #555;
-                margin-left: 5px;
+                margin-left: 10px;
             }
         }
     }
@@ -65,16 +66,13 @@
         align-items: center;
         margin: 10px;
 
-
         .colorOption {
             width: 20px;
             height: 20px;
             border-radius: 5px;
-            border: 1px solid #fdcf09;
+            border: 1px solid #ffea8f;
             cursor: pointer;
             margin: 4px;
-
-
 
             &:nth-child(1) {
                 background-color: #f1f1f1;
@@ -83,7 +81,37 @@
             &:nth-child(2) {
                 background-color: #333333;
             }
+        }
+    }
 
+    // Responsive Styles
+    @media screen and (max-width: 768px) {
+        .top {
+            height: 50px;
+        }
+
+        hr {
+            margin: 5px 0;
+        }
+
+        .center {
+            padding-left: 5px;
+
+            li {
+                padding: 8px;
+
+                .icon {
+                    font-size: 22px;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .bottom {
+            margin: 5px;
         }
     }
 }

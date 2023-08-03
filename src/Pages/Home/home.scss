@@ -1,31 +1,68 @@
 .home {
     display: flex;
+    flex-wrap: wrap;
 
     .homeContainer {
-        flex: 6;
+        flex: 1;
+        background-color: #f9f9f9;
+    }
 
-        .widgets,
-        .charts {
-            display: flex;
-            padding: 20px;
-            gap: 20px;
-            
-        }
+    .widgets,
+    .charts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
 
-        .charts {
-            padding: 20px;
-        }
+    .listContainer {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
 
-        .listContainer {
-            -webkit-box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.47);
-            box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            margin: 20px;
-            .listTitle{
-                font-weight: 500;
-                color: #555;
-                margin-bottom: 15px;
-            }
-        }
+    .listTitle {
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 10px;
+    }
+}
+
+// Responsive Breakpoints
+@media screen and (max-width: 1200px) {
+
+    .widgets,
+    .charts {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .listContainer {
+        margin: 10px;
+        padding: 10px;
+        /* Added padding for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home {
+        flex-direction: column;
+    }
+
+    .homeContainer {
+        padding: 10px;
+    }
+
+    .widgets,
+    .charts {
+        padding: 10px;
+        /* Added padding for smaller screens */
+    }
+
+    .listContainer {
+        padding: 10px;
     }
 }

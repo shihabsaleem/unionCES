@@ -13,6 +13,10 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
+        <div className="charts">
+          <Featured />
+          <Chart />
+        </div>
         <div className="widgets">
           <Widget type="tcount" />
           <Widget type="tmales" />
@@ -20,15 +24,9 @@ const Home = () => {
           <Widget type="tpoll" />
           <Widget type="rvote" />
         </div>
-        <div className="charts">
-          <Featured />
-          <Chart />
-        </div>
         <div className="listContainer">
-          <div className="listTitle">
-            Poll Result
-            <Table />
-          </div>
+          <div className="listTitle">Poll Result</div>
+          <Table />
         </div>
       </div>
     </div>
