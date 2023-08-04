@@ -7,12 +7,10 @@
     .top {
         height: 50px;
         max-height: 50px;
-        /* Limit top height to 50px */
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #fff;
-        // border-bottom: 1px solid #c1c1c1;
 
         .logo {
             font-size: 20px;
@@ -103,10 +101,6 @@
             .logo {
                 font-size: 18px;
             }
-        }
-
-        .center {
-            display: none;
         }
     }
 }

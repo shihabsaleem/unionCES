@@ -29,40 +29,40 @@
         color: #555;
         margin-bottom: 10px;
     }
-}
 
-// Responsive Breakpoints
-@media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1200px) {
 
-    .widgets,
-    .charts {
-        flex-direction: column;
-        gap: 10px;
+        .widgets,
+        .charts {
+            flex-direction: column;
+            gap: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .listContainer {
+            padding: 10px;
+        }
     }
 
-    .listContainer {
-        /* margin: 10px;
-        padding: 10px;
-         Added padding for smaller screens */
-    }
-}
+    @media screen and (max-width: 768px) {
+        .home {
+            flex-direction: column;
+        }
 
-@media screen and (max-width: 768px) {
-    .home {
-        flex-direction: column;
-    }
+        .homeContainer {
+            padding: 10px;
+        }
 
-    .homeContainer {
-        padding: 10px;
-    }
+        .widgets,
+        .charts {
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
 
-    .widgets,
-    .charts {
-        padding: 10px;
-        /* Added padding for smaller screens */
-    }
-
-    .listContainer {
-        padding: 10px;
+        .listContainer {
+            padding: 10px;
+        }
     }
 }
