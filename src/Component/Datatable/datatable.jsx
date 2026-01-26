@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./datatable.scss";
+import "./Datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 
