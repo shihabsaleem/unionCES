@@ -131,7 +131,8 @@ def table(request):
         "name": x.name,
         "dept": x.dept,
         "sem": x.semester,
-        "seat": x.seat
+        "seat": x.seat,
+        "vote": x.vote
     } for x in Candidate.objects.all()]
     return Response(l)
 

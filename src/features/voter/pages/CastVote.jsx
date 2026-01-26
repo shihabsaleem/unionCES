@@ -63,7 +63,7 @@ const CastVote = () => {
             <div className="flex-1 flex flex-col">
                 <Navbar />
 
-                <div className="p-8 flex justify-center">
+                <div className="p-4 md:p-8 flex justify-center">
                     <div className="w-full max-w-4xl bg-white rounded-3xl shadow-sm border border-gray-100 flex overflow-hidden">
                         {/* Visual */}
                         <div className="hidden md:flex flex-col items-center justify-center w-1/3 bg-gray-50 p-8 text-center uppercase">

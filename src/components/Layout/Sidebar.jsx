@@ -9,7 +9,7 @@ import logo from "../../Assets/logoh.svg";
 
 const Sidebar = () => {
   return (
-    <div className="flex-1 min-h-screen bg-white border-r border-gray-200 shadow-[2px_0_20px_rgba(0,0,0,0.02)]">
+    <div className="w-64 hidden md:block min-h-screen bg-white border-r border-gray-200 shadow-[2px_0_20px_rgba(0,0,0,0.02)] flex-shrink-0">
       {/* Top Logo Section */}
       <div className="h-[60px] flex items-center justify-center border-b border-gray-100">
         <Link to="/eofficer">

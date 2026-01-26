@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Layout/Navbar";
-import Sidebar from "../../components/Layout/Sidebar";
+import Navbar from "../../../components/Layout/Navbar";
+import Sidebar from "../../../components/Layout/Sidebar";
 import logo from "../../../Assets/logoh.svg"; // Adjusted path
 import { authFetch } from "../../../utils/api";
 
@@ -17,7 +17,7 @@ const AddCandidate = () => {
         e.preventDefault();
         try {
             // API call logic here...
-            console.log("Adding candidate:", formData);
+            // console.log("Adding candidate:", formData);
             alert("Functionality to be re-connected to backend");
         } catch (error) {
             console.error("Error:", error);
@@ -32,7 +32,7 @@ const AddCandidate = () => {
             <Sidebar />
             <div className="flex-1 flex flex-col">
                 <Navbar />
-                <div className="p-8 flex items-center justify-center">
+                <div className="p-4 md:p-8 flex items-center justify-center">
 
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 max-w-2xl w-full flex gap-8">
                         {/* Visual Side */}
