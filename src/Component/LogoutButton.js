@@ -1,27 +1,34 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import LogoutIcon from "@mui/icons-material/Logout";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const LogoutButton = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // 1. Clear Token and User Data
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-
-    // 2. Redirect to Login Page
-    navigate("/");
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    navigate('/');
   };
 
   return (
     <Button
       variant="contained"
-      color="error"
       startIcon={<LogoutIcon />}
       onClick={handleLogout}
-      sx={{ m: 1 }} // Add some margin
+      sx={{
+        bgcolor: '#ffeece', // Very light orange/yellow background
+        color: '#d4a000', // Darker yellow/orange text
+        fontWeight: '700',
+        boxShadow: 'none',
+        borderRadius: 'var(--border-radius-md)',
+        textTransform: 'none',
+        '&:hover': {
+          bgcolor: '#ffe0b2',
+          boxShadow: 'none'
+        }
+      }}
     >
       Logout
     </Button>

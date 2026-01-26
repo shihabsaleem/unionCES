@@ -9,13 +9,11 @@ const Login = () => {
     <div>
       <GoogleLogin
         onSuccess={(response) => {
-          console.log(response);
           var decoded = jwt_decode(response.credential);
           navigate("/voter");
-          console.log(decoded);
         }}
         onError={() => {
-          console.log("Login Failed");
+          // Handle error gracefully
         }}
       />
     </div>

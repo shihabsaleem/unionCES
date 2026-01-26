@@ -9,8 +9,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
-import Paper from "@mui/material/Paper"; // Added for card look
-import Container from "@mui/material/Container"; // Added for centering
+import Paper from "@mui/material/Paper";
+import Container from "@mui/material/Container";
+import { Link as RouterLink } from "react-router-dom";
 
 // Icons
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -43,6 +44,8 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username);
+        // Assuming backend *might* return role in future, but for now defaulting to /voter or /dashboard
+        // Since Signup goes to /dashboard, let's go to /dashboard for consistency unless it's a voter specific flow
         window.location.href = "/dashboard";
       } else {
         setError(data.error || "Invalid credentials.");
@@ -55,130 +58,148 @@ export default function Login() {
   };
 
   return (
-    // 1. Full Screen Background Container
     <Box
       sx={{
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #ece9e6 0%, #ffffff 100%)", // Subtle gradient
-        py: 3
+        background: "var(--bg-app)", // 60% - Light Gray
+        py: 3,
+        transition: "all 0.3s ease"
       }}
     >
-      <Container maxWidth="xs">
-        {/* 2. The Card Component */}
+      <Container maxWidth="xs" sx={{ p: 0 }}>
         <Paper
-          elevation={10}
+          elevation={0}
           sx={{
-            p: 4,
+            p: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            borderRadius: 3,
+            borderRadius: "var(--border-radius-lg)", // 24px
             width: "100%",
+            background: "var(--bg-card)", // 30% - White
+            boxShadow: "var(--shadow-soft)",
+            border: "1px solid rgba(0,0,0,0.02)"
           }}
         >
-          {/* --- LOGO --- */}
+          {/* Logo / Icon Area */}
           <Box
             sx={{
-              bgcolor: "primary.main",
-              color: "white",
-              p: 1.5,
-              borderRadius: "16px", // Softer corners
+              width: 60,
+              height: 60,
               display: "flex",
-              mb: 2,
-              boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+              alignItems: "center",
+              justifyContent: "center",
+              bgcolor: "var(--accent)", // 10% - Yellow
+              color: "black",
+              borderRadius: "18px",
+              mb: 3,
+              boxShadow: "0px 8px 16px rgba(255, 206, 7, 0.3)"
             }}
           >
-            <HowToVoteIcon fontSize="large" />
+            <HowToVoteIcon fontSize="large" sx={{ color: "#000" }} />
           </Box>
 
-          {/* --- HEADERS --- */}
-          <Typography component="h1" variant="h5" sx={{ fontWeight: "700", mb: 0.5 }}>
-            CES Union
+          <Typography component="h1" variant="h4" sx={{
+            fontWeight: "800",
+            mb: 1,
+            color: "var(--text-primary)",
+            letterSpacing: "-0.5px"
+          }}>
+            Welcome Back
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            Welcome back! Please enter your details.
+          <Typography variant="body1" sx={{ mb: 4, color: "var(--text-secondary)" }}>
+            Please sign in to continue
           </Typography>
 
-          {/* --- ERROR MESSAGE --- */}
           {error && (
-            <Alert severity="error" sx={{ width: "100%", mb: 2, borderRadius: 2 }}>
+            <Alert severity="error" sx={{
+              width: "100%",
+              mb: 3,
+              borderRadius: "var(--border-radius-md)",
+              border: "1px solid #ffcccd"
+            }}>
               {error}
             </Alert>
           )}
 
-          {/* --- FORM --- */}
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: "100%" }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username / ID"
-              name="username"
-              autoComplete="username"
-              autoFocus
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PersonOutlineIcon color="action" />
-                  </InputAdornment>
-                ),
-              }}
-              // Rounder inputs
-              sx={{ 
-                "& .MuiOutlinedInput-root": { borderRadius: 2 } 
-              }} 
-            />
+            <Box sx={{ mb: 3 }}>
+              <TextField
+                required
+                fullWidth
+                id="username"
+                placeholder="Username / ID"
+                name="username"
+                autoComplete="username"
+                autoFocus
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                variant="outlined"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PersonOutlineIcon sx={{ color: "var(--text-secondary)" }} />
+                    </InputAdornment>
+                  ),
+                  sx: {
+                    borderRadius: "var(--border-radius-md)",
+                    bgcolor: "var(--bg-app)",
+                    border: "none",
+                    "& fieldset": { border: "none" },
+                    "&:hover fieldset": { border: "none" },
+                    "&.Mui-focused fieldset": { border: "1px solid var(--accent)" },
+                    height: "56px",
+                    pl: 1
+                  }
+                }}
+              />
+            </Box>
 
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type={showPassword ? "text" : "password"}
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockOutlinedIcon color="action" />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={() => setShowPassword(!showPassword)}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              sx={{ 
-                "& .MuiOutlinedInput-root": { borderRadius: 2 } 
-              }}
-            />
-
-            <Grid container sx={{ mt: 1, mb: 2 }}>
-              <Grid item xs>
-               {/* Optional: Add "Remember me" checkbox here in the future */}
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2" underline="hover" sx={{ fontWeight: 500 }}>
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
+            <Box sx={{ mb: 4 }}>
+              <TextField
+                required
+                fullWidth
+                name="password"
+                placeholder="Password"
+                type={showPassword ? "text" : "password"}
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                variant="outlined"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockOutlinedIcon sx={{ color: "var(--text-secondary)" }} />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => setShowPassword(!showPassword)}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                  sx: {
+                    borderRadius: "var(--border-radius-md)",
+                    bgcolor: "var(--bg-app)",
+                    border: "none",
+                    "& fieldset": { border: "none" },
+                    "&:hover fieldset": { border: "none" },
+                    "&.Mui-focused fieldset": { border: "1px solid var(--accent)" },
+                    height: "56px",
+                    pl: 1
+                  }
+                }}
+              />
+            </Box>
 
             <Button
               type="submit"
@@ -186,14 +207,19 @@ export default function Login() {
               variant="contained"
               disabled={loading}
               sx={{
-                py: 1.5,
-                fontSize: "1rem",
-                fontWeight: "bold",
-                borderRadius: 2,
-                textTransform: "none", // Removes ALL CAPS style
-                boxShadow: 3,
+                py: 1.8,
+                fontSize: "1.05rem",
+                fontWeight: "700",
+                borderRadius: "var(--border-radius-md)",
+                textTransform: "none",
+                boxShadow: "none",
                 mb: 3,
-                background: "linear-gradient(to right, #1976d2, #1565c0)", // Gradient button
+                bgcolor: "var(--accent)",
+                color: "black",
+                "&:hover": {
+                  bgcolor: "#E6B800",
+                  boxShadow: "0px 4px 12px rgba(255, 206, 7, 0.4)"
+                }
               }}
             >
               {loading ? <CircularProgress size={24} color="inherit" /> : "Sign In"}
@@ -201,9 +227,17 @@ export default function Login() {
 
             <Grid container justifyContent="center">
               <Grid item>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{ color: "var(--text-secondary)" }}>
                   Don't have an account?{" "}
-                  <Link href="/signup" variant="body2" underline="hover" sx={{ fontWeight: "bold" }}>
+                  <Link
+                    component={RouterLink}
+                    to="/signup"
+                    underline="hover"
+                    sx={{
+                      fontWeight: "700",
+                      color: "black"
+                    }}
+                  >
                     Sign Up
                   </Link>
                 </Typography>
@@ -211,10 +245,9 @@ export default function Login() {
             </Grid>
           </Box>
         </Paper>
-        
-        {/* Footer Copyright */}
-        <Typography variant="caption" color="text.secondary" align="center" display="block" sx={{ mt: 4 }}>
-            © {new Date().getFullYear()} CES Union. All rights reserved.
+
+        <Typography variant="caption" align="center" display="block" sx={{ mt: 4, color: "var(--text-secondary)", opacity: 0.7 }}>
+          © {new Date().getFullYear()} CES Union
         </Typography>
       </Container>
     </Box>

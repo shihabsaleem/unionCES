@@ -1,11 +1,13 @@
 .navbar {
   height: 60px;
-  background-color: #ffffff; // Switched to white
-  border-bottom: 1px solid #ebebeb;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Glassmorphism base */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #555;
+  color: var(--text-primary);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -14,30 +16,39 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; // Space between search and profile
+    justify-content: space-between;
     padding: 0 20px;
 
     .search {
       display: flex;
       align-items: center;
-      border: 1px solid #e0e0e0;
-      border-radius: 20px;
-      padding: 5px 10px;
-      background-color: #fcfcfc;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 50px;
+      /* Pill shape */
+      padding: 8px 15px;
+      background-color: rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+
+      &:focus-within {
+        background-color: #fff;
+        box-shadow: 0 0 0 2px var(--accent);
+      }
 
       input {
         border: none;
         outline: none;
         background: transparent;
-        color: #555;
-        font-size: 12px;
+        color: var(--text-primary);
+        font-size: 14px;
+
         &::placeholder {
-          color: #adadad;
+          color: var(--text-secondary);
         }
       }
+
       .icon {
         font-size: 18px;
-        color: #adadad;
+        color: var(--text-secondary);
         cursor: pointer;
       }
     }
@@ -49,17 +60,25 @@
       .item {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 50px;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
 
         .adminText {
-          font-weight: 500;
-          color: #555;
+          font-weight: 600;
+          color: var(--text-primary);
         }
 
         .avatar {
           font-size: 32px;
-          color: #ffcd02; // Brand accent color
+          color: var(--text-secondary);
+          /* Neutral avatar until image loaded */
         }
       }
     }

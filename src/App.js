@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // --- AUTH & SECURITY ---
+// --- AUTH & SECURITY ---
 import Sample from "./Pages/Login/Sample"; // Login Page
+import Signup from "./Pages/Signup/Signup"; // Signup Page
 import PrivateRoute from "./Component/PrivateRoute"; // Security Wrapper
 
 // --- MAIN DASHBOARD (New) ---
@@ -28,6 +30,7 @@ function App() {
         <Routes>
           {/* 1. PUBLIC ROUTE: Login Page */}
           <Route path="/" element={<Sample />} />
+          <Route path="/signup" element={<Signup />} />
 
           {/* 2. PROTECTED ROUTE: Main Dashboard */}
           <Route
