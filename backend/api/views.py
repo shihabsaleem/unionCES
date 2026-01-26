@@ -34,7 +34,8 @@ class LoginView(APIView):
             return Response({
                 "token": token.key,
                 "username": user.username,
-                "user_id": user.pk
+                "user_id": user.pk,
+                "is_staff": user.is_staff
             })
         else:
             return Response(

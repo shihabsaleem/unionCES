@@ -1,49 +1,9 @@
-/* Apple Style Design System */
-:root {
-  /* 60% - Dominant Background */
-  --bg-app: #F5F5F7;
-  
-  /* 30% - Secondary (Cards, Containers) */
-  --bg-card: #FFFFFF;
-  
-  /* 10% - Accent (Primary Actions) */
-  --accent: #FFCE07;
-  --accent-hover: #E6B800; /* Slightly darker for hover */
-  
-  /* Text & Borders */
-  --text-primary: #1D1D1F;
-  --text-secondary: #86868B;
-  --border-radius-lg: 24px;
-  --border-radius-md: 12px;
-  --shadow-soft: 0px 10px 30px rgba(0, 0, 0, 0.05);
-  
-  /* Fonts */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  background-color: var(--bg-app);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Global resets for a cleaner base */
-* {
-  box-sizing: border-box;
-}
-
-/* Scrollbar styling (optional, cleaner look) */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.1);
-  border-radius: 4px;
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
 }

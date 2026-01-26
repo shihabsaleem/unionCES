@@ -7,9 +7,7 @@ import Sample from "./Pages/Login/Sample"; // Login Page
 import Signup from "./Pages/Signup/Signup"; // Signup Page
 import PrivateRoute from "./Component/PrivateRoute"; // Security Wrapper
 
-// --- MAIN DASHBOARD (New) ---
-// Make sure you created this file in src/Pages/Dashboard/Dashboard.js
-import Dashboard from "./Pages/Dashboard/Dashboard";
+
 
 // --- OFFICER PAGES ---
 import Home from "./Pages/Home/Home";
@@ -32,15 +30,7 @@ function App() {
           <Route path="/" element={<Sample />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* 2. PROTECTED ROUTE: Main Dashboard */}
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
+
 
           {/* 3. PROTECTED ROUTES: Election Officer */}
           <Route path="/eofficer">

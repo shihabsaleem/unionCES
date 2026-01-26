@@ -1,24 +1,11 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import Alert from "@mui/material/Alert";
-import CircularProgress from "@mui/material/CircularProgress";
-import Paper from "@mui/material/Paper";
-import Container from "@mui/material/Container";
 import { Link as RouterLink } from "react-router-dom";
-
-// Icons
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -44,9 +31,13 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username);
-        // Assuming backend *might* return role in future, but for now defaulting to /voter or /dashboard
-        // Since Signup goes to /dashboard, let's go to /dashboard for consistency unless it's a voter specific flow
-        window.location.href = "/dashboard";
+
+        // Role-based Redirect
+        if (data.is_staff) {
+          window.location.href = "/eofficer";
+        } else {
+          window.location.href = "/voter";
+        }
       } else {
         setError(data.error || "Invalid credentials.");
       }
@@ -58,198 +49,94 @@ export default function Login() {
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "var(--bg-app)", // 60% - Light Gray
-        py: 3,
-        transition: "all 0.3s ease"
-      }}
-    >
-      <Container maxWidth="xs" sx={{ p: 0 }}>
-        <Paper
-          elevation={0}
-          sx={{
-            p: 5,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            borderRadius: "var(--border-radius-lg)", // 24px
-            width: "100%",
-            background: "var(--bg-card)", // 30% - White
-            boxShadow: "var(--shadow-soft)",
-            border: "1px solid rgba(0,0,0,0.02)"
-          }}
-        >
-          {/* Logo / Icon Area */}
-          <Box
-            sx={{
-              width: 60,
-              height: 60,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              bgcolor: "var(--accent)", // 10% - Yellow
-              color: "black",
-              borderRadius: "18px",
-              mb: 3,
-              boxShadow: "0px 8px 16px rgba(255, 206, 7, 0.3)"
-            }}
-          >
-            <HowToVoteIcon fontSize="large" sx={{ color: "#000" }} />
-          </Box>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-3 transition-all duration-300">
+      <div className="w-full max-w-xs p-0">
+        <div className="bg-white p-10 flex flex-col items-center rounded-3xl shadow-lg border border-gray-100">
 
-          <Typography component="h1" variant="h4" sx={{
-            fontWeight: "800",
-            mb: 1,
-            color: "var(--text-primary)",
-            letterSpacing: "-0.5px"
-          }}>
+          {/* Logo */}
+          <div className="w-16 h-16 flex items-center justify-center bg-accent text-black rounded-2xl mb-6 shadow-md shadow-yellow-400/30">
+            <HowToVoteIcon fontSize="large" className="text-black" />
+          </div>
+
+          <h1 className="text-3xl font-extrabold mb-1 text-gray-900 tracking-tight">
             Welcome Back
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 4, color: "var(--text-secondary)" }}>
+          </h1>
+          <p className="text-gray-500 mb-8 text-base">
             Please sign in to continue
-          </Typography>
+          </p>
 
           {error && (
-            <Alert severity="error" sx={{
-              width: "100%",
-              mb: 3,
-              borderRadius: "var(--border-radius-md)",
-              border: "1px solid #ffcccd"
-            }}>
+            <div className="w-full mb-6 p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-sm">
               {error}
-            </Alert>
+            </div>
           )}
 
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: "100%" }}>
-            <Box sx={{ mb: 3 }}>
-              <TextField
+          <form onSubmit={handleSubmit} className="w-full space-y-4">
+            {/* Username Input */}
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <PersonOutlineIcon className="text-gray-400" />
+              </div>
+              <input
+                type="text"
                 required
-                fullWidth
                 id="username"
+                className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
                 placeholder="Username / ID"
-                name="username"
-                autoComplete="username"
-                autoFocus
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <PersonOutlineIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  sx: {
-                    borderRadius: "var(--border-radius-md)",
-                    bgcolor: "var(--bg-app)",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                    "&:hover fieldset": { border: "none" },
-                    "&.Mui-focused fieldset": { border: "1px solid var(--accent)" },
-                    height: "56px",
-                    pl: 1
-                  }
-                }}
               />
-            </Box>
+            </div>
 
-            <Box sx={{ mb: 4 }}>
-              <TextField
-                required
-                fullWidth
-                name="password"
-                placeholder="Password"
+            {/* Password Input */}
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <LockOutlinedIcon className="text-gray-400" />
+              </div>
+              <input
                 type={showPassword ? "text" : "password"}
+                required
                 id="password"
-                autoComplete="current-password"
+                className="w-full pl-10 pr-10 py-3.5 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={() => setShowPassword(!showPassword)}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                  sx: {
-                    borderRadius: "var(--border-radius-md)",
-                    bgcolor: "var(--bg-app)",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                    "&:hover fieldset": { border: "none" },
-                    "&.Mui-focused fieldset": { border: "1px solid var(--accent)" },
-                    height: "56px",
-                    pl: 1
-                  }
-                }}
               />
-            </Box>
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-400 hover:text-gray-600"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </button>
+            </div>
 
-            <Button
+            <button
               type="submit"
-              fullWidth
-              variant="contained"
               disabled={loading}
-              sx={{
-                py: 1.8,
-                fontSize: "1.05rem",
-                fontWeight: "700",
-                borderRadius: "var(--border-radius-md)",
-                textTransform: "none",
-                boxShadow: "none",
-                mb: 3,
-                bgcolor: "var(--accent)",
-                color: "black",
-                "&:hover": {
-                  bgcolor: "#E6B800",
-                  boxShadow: "0px 4px 12px rgba(255, 206, 7, 0.4)"
-                }
-              }}
+              className="w-full py-3.5 bg-accent text-black font-bold rounded-xl shadow-none hover:bg-accent-hover active:scale-95 transition-all duration-200"
             >
               {loading ? <CircularProgress size={24} color="inherit" /> : "Sign In"}
-            </Button>
+            </button>
 
-            <Grid container justifyContent="center">
-              <Grid item>
-                <Typography variant="body2" sx={{ color: "var(--text-secondary)" }}>
-                  Don't have an account?{" "}
-                  <Link
-                    component={RouterLink}
-                    to="/signup"
-                    underline="hover"
-                    sx={{
-                      fontWeight: "700",
-                      color: "black"
-                    }}
-                  >
-                    Sign Up
-                  </Link>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-        </Paper>
+            <div className="flex justify-center mt-4">
+              <p className="text-gray-500 text-sm">
+                Don't have an account?{" "}
+                <RouterLink
+                  to="/signup"
+                  className="font-bold text-gray-900 hover:underline"
+                >
+                  Sign Up
+                </RouterLink>
+              </p>
+            </div>
+          </form>
+        </div>
 
-        <Typography variant="caption" align="center" display="block" sx={{ mt: 4, color: "var(--text-secondary)", opacity: 0.7 }}>
+        <p className="text-center mt-8 text-gray-400 text-xs opacity-70">
           © {new Date().getFullYear()} CES Union
-        </Typography>
-      </Container>
-    </Box>
+        </p>
+      </div>
+    </div>
   );
 }

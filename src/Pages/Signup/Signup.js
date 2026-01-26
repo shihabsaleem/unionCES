@@ -1,24 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import InputAdornment from "@mui/material/InputAdornment";
-import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
-import Alert from "@mui/material/Alert";
-import CircularProgress from "@mui/material/CircularProgress";
-
-// Icons
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -70,8 +58,9 @@ export default function Signup() {
         setSuccess("Account created successfully! Redirecting...");
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", data.username);
+        // Default to voter on signup unless backend assigns staff logic on register (unlikely for now)
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/voter");
         }, 1500);
       } else {
         setError(data.error || "Registration failed.");
@@ -83,222 +72,128 @@ export default function Signup() {
     }
   };
 
-  // Shared Input Styles
-  const inputStyles = {
-    borderRadius: "var(--border-radius-md)",
-    bgcolor: "var(--bg-app)",
-    border: "none",
-    "& fieldset": { border: "none" },
-    "&:hover fieldset": { border: "none" },
-    "&.Mui-focused fieldset": { border: "1px solid var(--accent)" },
-    height: "56px",
-    pl: 1
-  };
-
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "var(--bg-app)",
-        py: 3
-      }}
-    >
-      <Container maxWidth="xs" sx={{ p: 0 }}>
-        <Paper
-          elevation={0}
-          sx={{
-            p: 5,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            borderRadius: "var(--border-radius-lg)",
-            width: "100%",
-            background: "var(--bg-card)",
-            boxShadow: "var(--shadow-soft)",
-            border: "1px solid rgba(0,0,0,0.02)"
-          }}
-        >
-          <Box
-            sx={{
-              width: 50,
-              height: 50,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              bgcolor: "var(--accent)",
-              color: "black",
-              borderRadius: "14px",
-              mb: 2,
-              boxShadow: "0px 6px 12px rgba(255, 206, 7, 0.3)"
-            }}
-          >
-            <HowToVoteIcon fontSize="medium" sx={{ color: "#000" }} />
-          </Box>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-3">
+      <div className="w-full max-w-xs p-0">
+        <div className="bg-white p-8 flex flex-col items-center rounded-3xl shadow-lg border border-gray-100">
+          <div className="w-14 h-14 flex items-center justify-center bg-accent text-black rounded-xl mb-4 shadow-md shadow-yellow-400/30">
+            <HowToVoteIcon fontSize="medium" className="text-black" />
+          </div>
 
-          <Typography component="h1" variant="h5" sx={{ fontWeight: "800", mb: 0.5, color: "var(--text-primary)" }}>
+          <h1 className="text-2xl font-extrabold mb-1 text-gray-900 tracking-tight">
             Create Account
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 3, color: "var(--text-secondary)" }}>
+          </h1>
+          <p className="text-gray-500 mb-6 text-sm">
             Join UnionCES today!
-          </Typography>
+          </p>
 
           {error && (
-            <Alert severity="error" sx={{ width: "100%", mb: 3, borderRadius: "var(--border-radius-md)", border: "1px solid #ffcccd" }}>
+            <div className="w-full mb-4 p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-sm">
               {error}
-            </Alert>
+            </div>
           )}
 
           {success && (
-            <Alert severity="success" sx={{ width: "100%", mb: 3, borderRadius: "var(--border-radius-md)", border: "1px solid #c8e6c9" }}>
+            <div className="w-full mb-4 p-3 rounded-xl bg-green-50 border border-green-100 text-green-600 text-sm">
               {success}
-            </Alert>
+            </div>
           )}
 
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: "100%" }}>
+          <form onSubmit={handleSubmit} className="w-full space-y-3">
             {/* Username */}
-            <Box sx={{ mb: 2 }}>
-              <TextField
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <PersonOutlineIcon className="text-gray-400" />
+              </div>
+              <input
+                type="text"
                 required
-                fullWidth
-                id="username"
-                placeholder="Username / ID"
                 name="username"
-                autoComplete="username"
-                autoFocus
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
+                placeholder="Username / ID"
                 value={formData.username}
                 onChange={handleChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <PersonOutlineIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  sx: inputStyles
-                }}
               />
-            </Box>
+            </div>
 
             {/* Email */}
-            <Box sx={{ mb: 2 }}>
-              <TextField
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <EmailOutlinedIcon className="text-gray-400" />
+              </div>
+              <input
+                type="text"
                 required
-                fullWidth
-                id="email"
-                placeholder="Email Address"
                 name="email"
-                autoComplete="email"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
+                placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailOutlinedIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  sx: inputStyles
-                }}
               />
-            </Box>
+            </div>
 
             {/* Password */}
-            <Box sx={{ mb: 2 }}>
-              <TextField
-                required
-                fullWidth
-                name="password"
-                placeholder="Password"
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <LockOutlinedIcon className="text-gray-400" />
+              </div>
+              <input
                 type={showPassword ? "text" : "password"}
-                id="password"
-                autoComplete="new-password"
+                required
+                name="password"
+                className="w-full pl-10 pr-10 py-3 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
+                placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Box
-                        sx={{ cursor: 'pointer', display: 'flex' }}
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        {showPassword ? <VisibilityOff sx={{ color: "var(--text-secondary)" }} /> : <Visibility sx={{ color: "var(--text-secondary)" }} />}
-                      </Box>
-                    </InputAdornment>
-                  ),
-                  sx: inputStyles
-                }}
               />
-            </Box>
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-400 hover:text-gray-600"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </button>
+            </div>
 
             {/* Confirm Password */}
-            <Box sx={{ mb: 3 }}>
-              <TextField
-                required
-                fullWidth
-                name="confirmPassword"
-                placeholder="Confirm Password"
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <LockOutlinedIcon className="text-gray-400" />
+              </div>
+              <input
                 type="password"
-                id="confirmPassword"
+                required
+                name="confirmPassword"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-none rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white transition-all duration-200"
+                placeholder="Confirm Password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon sx={{ color: "var(--text-secondary)" }} />
-                    </InputAdornment>
-                  ),
-                  sx: inputStyles
-                }}
               />
-            </Box>
+            </div>
 
-            <Button
+            <button
               type="submit"
-              fullWidth
-              variant="contained"
               disabled={loading}
-              sx={{
-                py: 1.8,
-                fontSize: "1rem",
-                fontWeight: "700",
-                borderRadius: "var(--border-radius-md)",
-                textTransform: "none",
-                boxShadow: "none",
-                mb: 3,
-                bgcolor: "var(--accent)",
-                color: "black",
-                "&:hover": {
-                  bgcolor: "#E6B800",
-                  boxShadow: "0px 4px 12px rgba(255, 206, 7, 0.4)"
-                }
-              }}
+              className="w-full py-3 bg-accent text-black font-bold rounded-xl shadow-none hover:bg-accent-hover active:scale-95 transition-all duration-200 mt-2"
             >
               {loading ? <CircularProgress size={24} color="inherit" /> : "Create Account"}
-            </Button>
+            </button>
 
-            <Grid container justifyContent="center">
-              <Grid item>
-                <Typography variant="body2" sx={{ color: "var(--text-secondary)" }}>
-                  Already have an account?{" "}
-                  <Link component={RouterLink} to="/" underline="hover" sx={{ fontWeight: "700", color: "black" }}>
-                    Sign In
-                  </Link>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-        </Paper>
+            <div className="flex justify-center mt-3">
+              <p className="text-gray-500 text-sm">
+                Already have an account?{" "}
+                <RouterLink to="/" className="font-bold text-gray-900 hover:underline">
+                  Sign In
+                </RouterLink>
+              </p>
+            </div>
+          </form>
+        </div>
 
-        <Typography variant="caption" align="center" display="block" sx={{ mt: 4, color: "var(--text-secondary)", opacity: 0.7 }}>
+        <p className="text-center mt-6 text-gray-400 text-xs opacity-70">
           © {new Date().getFullYear()} CES Union
-        </Typography>
-      </Container>
-    </Box>
+        </p>
+      </div>
+    </div>
   );
 }
