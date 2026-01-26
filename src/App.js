@@ -18,7 +18,7 @@ import AdminResults from "./features/admin/pages/Results";
 import VoterDashboard from "./features/voter/pages/Dashboard";
 import VoterCast from "./features/voter/pages/CastVote";
 import VoterResults from "./features/voter/pages/Results";
-// import VoterMyBallot from "./features/voter/pages/MyBallot"; // Not yet refactored/created, commenting out if not critical, or mapping to empty
+import VoterMyBallot from "./features/voter/pages/MyBallot";
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
             <Route index element={<PrivateRoute><VoterDashboard /></PrivateRoute>} />
             <Route path="cast" element={<PrivateRoute><VoterCast /></PrivateRoute>} />
             <Route path="result" element={<PrivateRoute><VoterResults /></PrivateRoute>} />
-            {/* <Route path="voted" element={ <PrivateRoute><VoterMyBallot /></PrivateRoute> } /> */}
+            <Route path="voted" element={<PrivateRoute><VoterMyBallot /></PrivateRoute>} />
           </Route>
         </Routes>
       </BrowserRouter>

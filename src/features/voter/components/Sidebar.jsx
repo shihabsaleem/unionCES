@@ -23,7 +23,7 @@ const VoterSidebar = () => {
             <div className="pl-2.5">
                 <ul className="list-none m-0 p-0">
 
-                    <p className="text-[10px] font-extrabold text-gray-400 mt-4 mb-1 ml-2.5 tracking-wide opacity-70">
+                    <p className="text-[10px] font-bold text-gray-400 mt-4 mb-1 ml-2.5 tracking-wide opacity-70">
                         MENU
                     </p>
                     <Link to="/voter" style={{ textDecoration: "none" }}>
@@ -54,7 +54,7 @@ const VoterSidebar = () => {
                         </li>
                     </Link>
 
-                    <p className="text-[10px] font-extrabold text-gray-400 mt-4 mb-1 ml-2.5 tracking-wide opacity-70">
+                    <p className="text-[10px] font-bold text-gray-400 mt-4 mb-1 ml-2.5 tracking-wide opacity-70">
                         USER
                     </p>
                     <Link to="/" style={{ textDecoration: "none" }}>

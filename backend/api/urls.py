@@ -11,5 +11,8 @@ urlpatterns = [
     path("castvote", views.cast_vote, name='cast_vote'),
     path("table", views.table, name='table'),
     path("result", views.result, name='result'),
-    path("votecandidates", views.votecandidates, name='vote_candidates')
+    path("votecandidates", views.votecandidates, name='vote_candidates'),
+    path("status", views.status, name='status'),
+    path("polling_status", views.get_control, name='polling_status'),
+    path("control", views.toggle_control, name='toggle_control')
 ]

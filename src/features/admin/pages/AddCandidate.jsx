@@ -53,12 +53,12 @@ const AddCandidate = () => {
                         {/* Visual Side */}
                         <div className="hidden md:flex flex-col items-center justify-center w-1/3 bg-gray-50 rounded-2xl p-6">
                             <img src={logo} alt="logo" className="w-full object-contain opacity-80" />
-                            <h3 className="mt-4 font-extrabold text-xl text-gray-400 uppercase tracking-widest text-center">Nomination Form</h3>
+                            <h3 className="mt-4 font-bold text-xl text-gray-400 uppercase tracking-widest text-center">Nomination Form</h3>
                         </div>
 
                         {/* Form Side */}
                         <div className="flex-1">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Candidate</h2>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-6">Add Candidate</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className={labelClass}>ID / Admission No</label>
@@ -83,7 +83,7 @@ const AddCandidate = () => {
                                     <input name="seat" type="text" onChange={handleChange} className={inputClass} placeholder="e.g. Chairman" required />
                                 </div>
 
-                                <button type="submit" className="w-full py-3.5 bg-accent text-black font-bold rounded-xl shadow-none hover:bg-accent-hover transition-all duration-200 mt-4">
+                                <button type="submit" className="w-full py-3.5 bg-accent text-black font-semibold rounded-xl shadow-none hover:bg-accent-hover transition-all duration-200 mt-4">
                                     Submit Nomination
                                 </button>
                             </form>

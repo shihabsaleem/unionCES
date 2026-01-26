@@ -14,7 +14,7 @@ from rest_framework import status
 
 # App Imports
 from .serializer import CandidateSerializer
-from .models import Candidate
+from .models import Candidate, VoteRecord, ElectionControl
 
 # ==========================================
 # AUTHENTICATION VIEWS
@@ -96,11 +96,19 @@ def cast_vote(request):
     try:
         data = request.data if request.data else json.loads(request.body.decode())
         
+        # Check Polling Status
+        settings = ElectionControl.get_settings()
+        if not settings.polling_active:
+             return Response({"error": "Polling is currently closed."}, status=status.HTTP_400_BAD_REQUEST)
+
         chair = Candidate.objects.filter(admission=data.get('chair')).first()
         vchair = Candidate.objects.filter(admission=data.get('vchair')).first()
         lady = Candidate.objects.filter(admission=data.get('ladyrep')).first()
         secr = Candidate.objects.filter(admission=data.get('secr')).first()
         
+        if VoteRecord.objects.filter(user=request.user).exists():
+             return Response({"error": "You have already voted!"}, status=status.HTTP_400_BAD_REQUEST)
+
         # Check if candidates exist before voting to avoid errors
         if chair: 
             chair.vote += 1
@@ -115,6 +123,7 @@ def cast_vote(request):
             secr.vote += 1
             secr.save()
             
+        VoteRecord.objects.create(user=request.user)
         return Response('ok')
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
@@ -168,3 +177,31 @@ def votecandidates(request):
         "secr": secretery,
         "ladyrep": lady
     })
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def status(request):
+    has_voted = VoteRecord.objects.filter(user=request.user).exists()
+    return Response({"has_voted": has_voted})
+
+@api_view(['GET'])
+def get_control(request):
+    settings = ElectionControl.get_settings()
+    return Response({"polling_active": settings.polling_active})
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def toggle_control(request):
+    if not request.user.is_staff: # Simple Admin Check
+         return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
+
+    settings = ElectionControl.get_settings()
+    action = request.data.get("action")
+    
+    if action == "start":
+        settings.polling_active = True
+    elif action == "stop":
+        settings.polling_active = False
+    
+    settings.save()
+    return Response({"polling_active": settings.polling_active})
