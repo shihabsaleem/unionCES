@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# 🗳️ UnionCES Voting System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**UnionCES** is a secure, modern, and feature-rich digital voting platform designed for College Election Systems. It allows voters to cast their ballots online while providing Election Officers (Admins) with real-time dashboards to manage candidates and view results.
 
-## Available Scripts
+## 🚀 Technology Stack
 
-In the project directory, you can run:
+### Frontend
+- **React.js**: Core framework for a dynamic SPA (Single Page Application).
+- **Tailwind CSS**: Utility-first CSS framework for modern, responsive styling.
+- **React Router**: For seamless feature-based navigation.
+- **React Select**: Enhanced dropdown components.
 
-### `npm start`
+### Backend
+- **Django**: Robust Python web framework.
+- **Django REST Framework (DRF)**: API development and serialization.
+- **SQLite**: Lightweight database for development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### 👤 Voter Portal
+- **Secure Login**: Access the platform with verified credentials.
+- **Dashboard**: View election status (Live/Closed) and candidate stats.
+- **Cast Vote**: Intuitive digital ballot for all positions (Chairman, Vice Chairman, etc.).
+- **Live Results**: Read-only view of the current election standings.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🛡️ Admin (Election Officer) Portal
+- **Dashboard**: Real-time overview of total candidates and active votes.
+- **Candidate Registry**: Add, remove, and manage candidate nominations.
+- **Voter List**: View the complete registry of eligible voters.
+- **Admin Control**: Monitor election integrity and system status.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Installation & Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16+)
+- [Python](https://www.python.org/) (v3.10+)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Backend Setup (Django)
 
-### `npm run eject`
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Create a virtual environment (optional but recommended):
+   ```bash
+   python -m venv venv
+   # Windows:
+   venv\Scripts\activate
+   # Mac/Linux:
+   source venv/bin/activate
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Start the backend server:
+   ```bash
+   python manage.py runserver
+   ```
+   *The API will be available at `http://localhost:8000/api/`.*
 
-## Learn More
+### 2. Frontend Setup (React)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Navigate to the project root (if not already there):
+   ```bash
+   cd unionCES
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Code Splitting
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   *The app will open at `http://localhost:3000`.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```text
+unionCES/
+├── backend/                 # Django Backend
+│   ├── api/                 # API Views, Models, Serializers
+│   └── ...
+├── src/                     # React Frontend
+│   ├── assets/              # Images, Logos, Icons
+│   ├── components/          # Shared UI (Navbar, Sidebar)
+│   ├── features/            # Feature Modules
+│   │   ├── auth/            # Login, Signup
+│   │   ├── admin/           # Admin Dashboard & Tools
+│   │   └── voter/           # Voter Dashboard & Casting
+│   ├── utils/               # API Helpers
+│   └── App.js               # Main Router
+└── ...
+```
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 License
+This project is for educational and organizational use within CES. All rights reserved.

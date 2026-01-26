@@ -20,7 +20,7 @@ const Navbar = () => {
         {/* Right Items */}
         <div className="flex items-center">
           <div className="flex items-center gap-3 cursor-pointer py-1.5 px-3 rounded-full hover:bg-gray-100 transition-colors duration-200">
-            <span className="font-semibold text-gray-700">Hi, Admin</span>
+            <span className="font-semibold text-gray-700">Hi, {localStorage.getItem("username") || "User"}</span>
             <AccountCircleIcon className="text-[32px] text-gray-400" />
           </div>
         </div>

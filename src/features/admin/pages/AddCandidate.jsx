@@ -16,11 +16,26 @@ const AddCandidate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // API call logic here...
-            // console.log("Adding candidate:", formData);
-            alert("Functionality to be re-connected to backend");
+            const response = await authFetch("http://localhost:8000/api/addcandidate", {
+                method: "POST",
+                body: JSON.stringify({
+                    admission: formData.id,
+                    name: formData.name,
+                    dept: formData.dept,
+                    semester: formData.sem,
+                    seat: formData.seat
+                }),
+            });
+
+            if (response.ok) {
+                alert("Candidate Added Successfully!");
+                setFormData({ id: "", name: "", dept: "", sem: "", seat: "" }); // Reset form
+            } else {
+                alert("Failed to add candidate. Please check inputs.");
+            }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error adding candidate:", error);
+            alert("An error occurred. See console.");
         }
     };
 

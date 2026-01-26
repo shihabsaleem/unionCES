@@ -60,7 +60,7 @@ class SignupView(APIView):
 
         # Create user and token
         user = User.objects.create_user(username=username, password=password, email=email)
-        token, _ = Token.objects.create(user=user)
+        token = Token.objects.create(user=user)
         
         return Response({
             "token": token.key,
