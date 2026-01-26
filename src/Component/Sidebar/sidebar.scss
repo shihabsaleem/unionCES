@@ -1,106 +1,66 @@
 .sidebar {
-    flex: 1;
-    border-right: 1px solid #c1c1c1;
-    min-height: 100vh;
-    background-color: white;
+  flex: 1; // Works with the Home flex setup
+  min-height: 100vh;
+  background-color: white;
+  border-right: 1px solid #ebebeb;
 
-    .top {
-        height: 50px;
-        max-height: 50px;
+  .top {
+    height: 60px; // Match Navbar height
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .logo {
+      img {
+        height: 35px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .title {
+        font-size: 10px;
+        font-weight: bold;
+        color: #999;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+      }
+
+      li {
         display: flex;
         align-items: center;
-        justify-content: center;
-        background-color: #fff;
+        padding: 10px 10px;
+        margin-right: 10px; // spacing from right edge
+        cursor: pointer;
+        border-radius: 8px;
+        color: #555;
+        transition: all 0.2s ease;
 
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: #555;
-        }
-    }
-
-    hr {
-        height: 1px;
-        border: none;
-        background-color: #c1c1c1;
-        margin: 10px 0;
-    }
-
-    .center {
-        padding-left: 10px;
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        &:hover {
+          background-color: #fff9db; // Very light yellow tint
+          color: #dcb300;
         }
 
-        li {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-
-            &:hover {
-                background-color: #f5f5f5;
-                border-radius: 5px;
-            }
-
-            .icon {
-                font-size: 24px;
-                color: #ffea8f;
-                margin-right: 10px;
-
-                &:hover {
-                    color: #fdcf09;
-                }
-            }
-
-            span {
-                font-size: 14px;
-                font-weight: 500;
-                color: #555;
-            }
+        .icon {
+          font-size: 22px;
+          margin-right: 10px;
+          color: #dcb300; // Darker yellow for better contrast
         }
-    }
 
-    .bottom {
-        display: flex;
-        align-items: center;
-        margin: 10px;
-
-        .colorOption {
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            border: 1px solid #ffea8f;
-            cursor: pointer;
-            margin: 4px;
-
-            &:nth-child(1) {
-                background-color: #f1f1f1;
-            }
-
-            &:nth-child(2) {
-                background-color: #333333;
-            }
+        span {
+          font-size: 14px;
+          font-weight: 500;
         }
+      }
     }
-}
-
-// Responsive Breakpoints
-@media screen and (max-width: 768px) {
-    .sidebar {
-        flex: 0;
-        width: 70px;
-
-        .top {
-            justify-content: flex-start;
-
-            .logo {
-                font-size: 18px;
-            }
-        }
-    }
+  }
 }

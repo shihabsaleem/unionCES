@@ -1,73 +1,35 @@
 .featured {
-    flex: 2.5;
-    background-color: #ffffff;
-    border-radius: 12px;
-    /* Increased border radius */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
-    padding: 15px;
+  // Flex is handled by the parent (.charts) in Home.scss
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  // Shadows are handled by Home.scss for consistency, but you can keep them here if you prefer
+  color: #555;
 
-    &:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
     }
+  }
 
-    .top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: #555555;
-        /* Primary text color */
-        margin-bottom: 10px;
-
-        .title {
-            font-size: 16px;
-            font-weight: 500;
-            /* Adjusted font weight */
-            color: #555555;
-            /* Primary text color */
-        }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+    .featuredChart {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
     }
-
-    .bottom {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        font-weight: 500;
-        color: #555555;
-        /* Primary text color */
-
-        .featuredChart {
-            width: 120px;
-            /* Increased width */
-            height: 120px;
-            /* Increased height */
-        }
-    }
-}
-
-// Responsive Breakpoints
-@media screen and (max-width: 768px) {
-    .featured {
-        flex: 1;
-        padding: 12px;
-
-        .top {
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-
-        .bottom {
-            gap: 10px;
-            font-size: 12px;
-
-            .featuredChart {
-                width: 100px;
-                /* Increased width */
-                height: 100px;
-                /* Increased height */
-            }
-        }
-    }
+  }
 }

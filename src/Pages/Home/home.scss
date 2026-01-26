@@ -1,68 +1,80 @@
 .home {
+  display: flex;
+  width: 100%;
+
+  .homeContainer {
+    flex: 6; // Allocates space relative to Sidebar (assuming Sidebar is flex: 1)
+    background-color: #f5f7f9; // Slightly cooler gray for a modern look
+    min-height: 100vh;
+
+    .contentWrapper {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  // 1. Widgets Section - Using Grid for better responsiveness
+  .widgets {
+    display: grid;
+    // Auto-fit ensures cards are at least 200px wide, but stretch to fill space
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  // 2. Charts Section
+  .charts {
     display: flex;
-    flex-wrap: wrap;
+    gap: 20px;
+    height: 400px; // Enforce a height so charts look uniform
 
-    .homeContainer {
-        flex: 1;
-        background-color: #f9f9f9;
+    // Make charts act as flexible containers
+    > * {
+      flex: 1;
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.07);
+      box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.07);
+      border-radius: 10px;
+      background-color: white;
     }
+  }
 
-    .widgets,
-    .charts {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    .listContainer {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-top: 20px;
-    }
+  // 3. Table Section
+  .listContainer {
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.07);
+    box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.07);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
 
     .listTitle {
-        font-weight: 500;
-        color: #555;
-        margin-bottom: 10px;
+      font-weight: 600;
+      color: #6c757d; // Muted text color
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+  }
+
+  // --- Responsive Breakpoints ---
+
+  // Tablet View (max 1200px)
+  @media screen and (max-width: 1200px) {
+    .charts {
+      flex-direction: column; // Stack charts vertically on smaller screens
+      height: auto; // Remove fixed height so they expand naturally
+    }
+  }
+
+  // Mobile View (max 768px)
+  @media screen and (max-width: 768px) {
+    .contentWrapper {
+      padding: 10px;
     }
 
-    @media screen and (max-width: 1200px) {
-
-        .widgets,
-        .charts {
-            flex-direction: column;
-            gap: 10px;
-            display: flex;
-            flex-direction: row;
-        }
-
-        .listContainer {
-            padding: 10px;
-        }
+    .widgets {
+      // Force single column on very small screens if needed,
+      // though auto-fit usually handles this.
+      grid-template-columns: 1fr;
     }
-
-    @media screen and (max-width: 768px) {
-        .home {
-            flex-direction: column;
-        }
-
-        .homeContainer {
-            padding: 10px;
-        }
-
-        .widgets,
-        .charts {
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        .listContainer {
-            padding: 10px;
-        }
-    }
+  }
 }

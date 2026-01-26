@@ -1,74 +1,67 @@
 .navbar {
-    height: 60px;
-    border-bottom: 1px solid #c1c1c1;
-    background-color: #ffea8f;
+  height: 60px;
+  background-color: #ffffff; // Switched to white
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .wrapper {
+    width: 100%;
     display: flex;
     align-items: center;
-    font-size: 14px;
-    color: #333;
-    /* Changed text color for better contrast */
+    justify-content: space-between; // Space between search and profile
+    padding: 0 20px;
 
-    .wrapper {
+    .search {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      padding: 5px 10px;
+      background-color: #fcfcfc;
+
+      input {
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #555;
+        font-size: 12px;
+        &::placeholder {
+          color: #adadad;
+        }
+      }
+      .icon {
+        font-size: 18px;
+        color: #adadad;
+        cursor: pointer;
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+
+      .item {
         display: flex;
         align-items: center;
-        padding: 0 20px;
-        justify-content: flex-end;
+        gap: 10px;
+        cursor: pointer;
 
-        .items {
-            display: flex;
-            align-items: center;
-
-            .item {
-                display: flex;
-                align-items: center;
-                margin-right: 20px;
-                cursor: pointer;
-                transition: color 0.3s ease-in-out;
-
-                &:last-child {
-                    margin-right: 0;
-                }
-
-                &:hover {
-                    color: #555;
-                    /* Changed hover color for better contrast */
-                }
-
-                .icon {
-                    font-size: 20px;
-                    margin-right: 5px;
-                    /* Adjusted margin for better spacing */
-                }
-
-                span {
-                    display: none;
-                    /* Hide span text for a cleaner look */
-                }
-            }
+        .adminText {
+          font-weight: 500;
+          color: #555;
         }
-    }
-}
 
-// Responsive Breakpoints
-@media screen and (max-width: 768px) {
-    .navbar {
-        height: 50px;
-    }
-
-    .wrapper {
-        padding: 0 10px;
-
-        .items {
-            .item {
-                margin-right: 10px;
-                font-size: 12px;
-                padding: 5px;
-
-                .icon {
-                    font-size: 18px;
-                    margin-right: 3px;
-                }
-            }
+        .avatar {
+          font-size: 32px;
+          color: #ffcd02; // Brand accent color
         }
+      }
     }
+  }
 }
