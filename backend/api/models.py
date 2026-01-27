@@ -20,6 +20,7 @@ class VoteRecord(models.Model):
 
 class ElectionControl(models.Model):
     polling_active = models.BooleanField(default=False)
+    results_published = models.BooleanField(default=False)
 
     @classmethod
     def get_settings(cls):
@@ -27,4 +28,4 @@ class ElectionControl(models.Model):
         return obj
 
     def __str__(self):
-        return f"Polling Active: {self.polling_active}"
+        return f"Polling Active: {self.polling_active}, Results Published: {self.results_published}"

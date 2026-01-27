@@ -11,7 +11,8 @@ import Signup from "./features/auth/Signup";
 // --- FEATURES: ADMIN (ELECTION OFFICER) ---
 import AdminDashboard from "./features/admin/pages/Dashboard";
 import AdminAddCandidate from "./features/admin/pages/AddCandidate";
-import AdminVoterList from "./features/admin/pages/VoterList";
+// AdminVoterList removal
+import AdminVoters from "./features/admin/pages/Voters";
 import AdminResults from "./features/admin/pages/Results";
 
 // --- FEATURES: VOTER ---
@@ -33,7 +34,8 @@ function App() {
           <Route path="/eofficer">
             <Route index element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
             <Route path="Add" element={<PrivateRoute><AdminAddCandidate /></PrivateRoute>} />
-            <Route path="List" element={<PrivateRoute><AdminVoterList /></PrivateRoute>} />
+            {/* List Route Removed */}
+            <Route path="Voters" element={<PrivateRoute><AdminVoters /></PrivateRoute>} />
             <Route path="Result" element={<PrivateRoute><AdminResults /></PrivateRoute>} />
           </Route>
 

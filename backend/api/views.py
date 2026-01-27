@@ -179,7 +179,6 @@ def votecandidates(request):
     })
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def status(request):
     has_voted = VoteRecord.objects.filter(user=request.user).exists()
     return Response({"has_voted": has_voted})
@@ -187,7 +186,10 @@ def status(request):
 @api_view(['GET'])
 def get_control(request):
     settings = ElectionControl.get_settings()
-    return Response({"polling_active": settings.polling_active})
+    return Response({
+        "polling_active": settings.polling_active,
+        "results_published": settings.results_published
+    })
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -202,6 +204,56 @@ def toggle_control(request):
         settings.polling_active = True
     elif action == "stop":
         settings.polling_active = False
+    elif action == "publish_results":
+        settings.results_published = True
+    elif action == "hide_results":
+        settings.results_published = False
     
     settings.save()
-    return Response({"polling_active": settings.polling_active})
+    return Response({
+        "polling_active": settings.polling_active,
+        "results_published": settings.results_published
+    })
+
+@api_view(['GET'])
+def get_turnout(request):
+    """Get voter turnout statistics"""
+    total_voters = User.objects.filter(is_staff=False).count()
+    votes_cast = VoteRecord.objects.count()
+    
+    turnout_percentage = 0
+    if total_voters > 0:
+        turnout_percentage = (votes_cast / total_voters) * 100
+    
+    return Response({
+        "total_voters": total_voters,
+        "votes_cast": votes_cast,
+        "turnout_percentage": round(turnout_percentage, 2)
+    })
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_voters_list(request):
+    """Get list of all voters with their voting status"""
+    if not request.user.is_staff:
+        return Response({"error": "Unauthorized"}, status=status.HTTP_403_FORBIDDEN)
+    
+    # Get all non-staff users (voters)
+    voters = User.objects.filter(is_staff=False).order_by('username')
+    
+    voter_list = []
+    for voter in voters:
+        # Check if user has voted (get the most recent vote record)
+        vote_record = VoteRecord.objects.filter(user=voter).order_by('-voted_on').first()
+        
+        voter_list.append({
+            "id": voter.id,
+            "username": voter.username,
+            "first_name": voter.first_name,
+            "last_name": voter.last_name,
+            "email": voter.email,
+            "has_voted": vote_record is not None,
+            "voted_on": vote_record.voted_on.isoformat() if vote_record else None
+        })
+    
+    return Response(voter_list)

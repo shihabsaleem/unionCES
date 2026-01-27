@@ -14,5 +14,7 @@ urlpatterns = [
     path("votecandidates", views.votecandidates, name='vote_candidates'),
     path("status", views.status, name='status'),
     path("polling_status", views.get_control, name='polling_status'),
-    path("control", views.toggle_control, name='toggle_control')
+    path("control", views.toggle_control, name='toggle_control'),
+    path("turnout", views.get_turnout, name='turnout'),
+    path("voters", views.get_voters_list, name='voters_list')
 ]
